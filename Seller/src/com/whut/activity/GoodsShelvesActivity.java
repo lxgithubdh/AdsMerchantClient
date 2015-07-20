@@ -6,7 +6,6 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.alibaba.fastjson.JSONObject;
 import com.pgyersdk.Pgy;
 import com.whut.seller.R;
 import com.whut.util.AsyncHttpPost;

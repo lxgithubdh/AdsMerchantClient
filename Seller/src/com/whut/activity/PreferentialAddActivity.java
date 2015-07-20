@@ -7,7 +7,6 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.alibaba.fastjson.JSONObject;
 import com.pgyersdk.Pgy;
 import com.whut.config.Constants;
 import com.whut.seller.R;
@@ -15,6 +14,7 @@ import com.whut.util.AsyncHttpPost;
 import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
+import com.whut.util.PickDateDialog;
 import com.whut.util.SelectImage;
 
 import android.app.Activity;
@@ -25,6 +25,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -54,6 +55,10 @@ public class PreferentialAddActivity extends Activity {
 		private boolean canSubmit = true;
 		//选择图片
 		private SelectImage selectImage;
+		//起始时间
+		private EditText startDate;
+		//结束时间
+		private EditText endDate;
 		private List<NameValuePair> params = new ArrayList<NameValuePair>() ;  //参数列表
 		private Context context;
 		
@@ -70,6 +75,8 @@ public class PreferentialAddActivity extends Activity {
 			image = (ImageView)findViewById(R.id.preferential_info_image);
 	        dialog = new ProgressDialog(context);
 	        selectImage = new SelectImage(context);
+	        startDate = (EditText)findViewById(R.id.preferential_info_start_time);
+	        endDate = (EditText)findViewById(R.id.preferential_info_end_time);
 			RadioGroup group = (RadioGroup)findViewById(R.id.preferential_info_is_allow);
 			group.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				
@@ -102,6 +109,11 @@ public class PreferentialAddActivity extends Activity {
 					}
 				}
 			};
+			
+			startDate.setInputType(InputType.TYPE_NULL);
+			startDate.setOnFocusChangeListener(new PickDateDialog(context, startDate));
+			endDate.setInputType(InputType.TYPE_NULL);
+			endDate.setOnFocusChangeListener(new PickDateDialog(context, endDate));
 		}
 		
 		

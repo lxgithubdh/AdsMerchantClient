@@ -7,7 +7,6 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.alibaba.fastjson.JSONObject;
 import com.pgyersdk.Pgy;
 import com.whut.config.Constants;
 import com.whut.data.model.CouponModel;
@@ -17,6 +16,7 @@ import com.whut.util.AsyncHttpPost;
 import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
+import com.whut.util.PickDateDialog;
 import com.whut.util.SelectImage;
 
 import android.app.Activity;
@@ -24,10 +24,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -136,6 +136,11 @@ public class PreferentialDetailActivity extends Activity{
 					}
 				}
 			};
+			
+			startTime.setInputType(InputType.TYPE_NULL);
+			startTime.setOnFocusChangeListener(new PickDateDialog(context, startTime));
+			endTime.setInputType(InputType.TYPE_NULL);
+			endTime.setOnFocusChangeListener(new PickDateDialog(context, endTime));
 		}
 		
 		

@@ -3,16 +3,10 @@ package com.whut.activity;
 import com.whut.fragment.ChannelMemberManagerFragment;
 import com.whut.fragment.ShopMemberManagerFragment;
 import com.whut.seller.R;
-import com.whut.seller.R.color;
-import com.whut.seller.R.id;
-import com.whut.seller.R.layout;
-
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
