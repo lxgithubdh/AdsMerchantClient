@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/about_titlebar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/about_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:text="Wifi大数据线下广告用户端"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/about_rules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/about_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:text="使用条款和隐私"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/about_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/about_rules"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="中国普天信息产业股份有限公司"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/about_website"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/about_company"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="http://www.potevio.com"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

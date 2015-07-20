@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.whut.seller"
+    android:versionCode="1"
+    android:versionName="1.0.4" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="20" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取网络状态 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络通信-->
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />  <!-- 获取设备信息 -->
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取MAC地址-->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读写sdcard，storage等等 -->
+	<uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 允许程序录制音频 -->
+	<uses-permission android:name="android.permission.CAMERA"/>
+
+	<!-- 可选-->
+	<uses-permission android:name="android.permission.READ_LOGS" /> <!-- 获取logcat日志 -->
+
+
+    <application
+        android:name="com.whut.application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MyAppTheme" >
+        <activity  android:name="com.whut.activity.MainActivity"></activity>
+        <activity
+            android:name="com.whut.activity.LoginActivity"
+            android:label="@string/app_name" >
+           <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.whut.activity.ChannalBusinessActivity">
+        </activity>
+        <activity
+            android:name="com.whut.activity.MemberManagerActivity">
+        </activity>
+        <activity
+            android:name="com.whut.activity.CommentManagerActivity" >
+        </activity>
+        <activity
+            android:name="com.whut.activity.AboutActivity">
+        </activity>
+        <activity
+            android:name="com.whut.activity.ChannalBusinessDetailActivity">
+        </activity>
+      <activity 
+            android:name="com.whut.activity.GoodsShelvesActivity">
+        </activity>
+       <activity android:name="com.whut.activity.GoodsListActivity"> </activity>
+       <activity android:name="com.whut.activity.GoodsDetailActivity"
+           android:windowSoftInputMode="stateHidden"></activity>
+       <activity android:name="com.whut.activity.StoreManageActivity"
+           android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name="com.whut.activity.ProtocolActivity"></activity>
+        <activity android:name="com.whut.activity.WebPageActivity"></activity>
+        <activity android:name="com.whut.activity.PortalImageActivity"></activity>
+        <activity android:name="com.whut.activity.PreferentialAddActivity"></activity>
+        <activity android:name="com.whut.activity.PreferentialDetailActivity"
+                  android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name="com.whut.activity.PreferentialManagerActivity"></activity>
+        <activity android:name="com.whut.activity.WiFiManageActivity"></activity>
+        <activity android:name="com.whut.activity.GuestStateActivity"></activity>
+        <activity android:name="com.whut.activity.SettingActivity"></activity>
+    </application>
+
+</manifest>

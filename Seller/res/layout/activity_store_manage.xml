@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <include layout="@layout/store_manage_titlebar"/>
+
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+      <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <ImageView 
+            android:id="@+id/store_manage_image"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:src="@null"
+            android:scaleType="fitXY"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:onClick="selectImage"/>
+        
+         <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:paddingRight="5dp">
+            <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="名称"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+            <EditText
+                    android:id="@+id/store_manage_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:hint="请输入店铺名称"/>
+        </LinearLayout>
+          
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:paddingRight="5dp">
+            <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="姓名"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+            <EditText
+                    android:id="@+id/store_manage_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:hint="请输入店主姓名"/>
+        </LinearLayout>
+        
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:paddingRight="5dp">
+            <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="电话"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+            <EditText
+                    android:id="@+id/store_manage_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:hint="请输入电话号码"
+                    android:inputType="phone"/>
+        </LinearLayout>
+         
+    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:paddingRight="5dp">
+            <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="地址"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+            <EditText
+                    android:id="@+id/store_manage_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:hint="请输入地址"/>
+        </LinearLayout>
+       
+         <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:paddingRight="5dp">
+            <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="QQ号"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+            <EditText
+                    android:id="@+id/store_manage_qq"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:hint="请输入QQ号"
+                    android:inputType="number"/>
+        </LinearLayout>
+        
+         <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:paddingRight="5dp">
+            <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="微信号"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/store_manage_wechat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="请输入微信号"
+                android:textSize="16sp" >
+
+            </EditText>
+
+        </LinearLayout>
+         
+   
+        
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:paddingRight="5dp">
+            <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="电子邮箱"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/store_manage_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入电子邮箱地址"
+                android:textSize="16sp"
+                android:inputType="textEmailAddress" />
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:paddingRight="5dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="店铺公告"
+                android:textSize="16sp"/>
+        <EditText
+                android:id="@+id/store_manage_notice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="top"
+                android:maxLines="4"
+                android:lines="4"
+                android:ems="10"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:hint="请输入公告信息"
+                android:textSize="16sp"
+                android:inputType="textMultiLine"/>
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

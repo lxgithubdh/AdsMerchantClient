@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">商户端</string>
+    
+    <string name="protocal_text"><u>用户协议</u></string>
+    <string name="copyright_text">Copyright © 2015年 wushuu. All rights reserved.</string>
+
+</resources>
