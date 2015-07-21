@@ -12,7 +12,7 @@ public class Constants {
 	//添加优惠券
 	public static final String ADD_COUPON_PATH=ROOT_HTTP+"/node-tair-web/app/mall/addCoupon";
 	//获取优惠券列表
-	public static final String GET_COUPON_LIST = "";
+	public static final String GET_COUPON_LIST = ROOT_HTTP+"/node-tair-web/app/mall/CouponList";
 	//更新优惠券
 	public static final String UPDATE_COUPON_PATH = "";
 	//获取商品列表

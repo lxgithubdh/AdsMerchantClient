@@ -2,17 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
     
-    <ImageView 
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+        <ImageView 
         android:id="@+id/coupon_list_image"
         android:layout_width="120dp"
         android:layout_height="80dp"
-        android:paddingRight="5dp"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:layout_marginRight="5dp"/>
     
     <TextView 
         android:id="@+id/coupon_list_title"
@@ -21,7 +27,10 @@
         android:ellipsize="end"
         android:maxLines="3"
         android:singleLine="false"
-        android:textSize="24sp"/>
+        android:textSize="20sp"/>
+    </LinearLayout>
+    
+    
     
 
 </LinearLayout>

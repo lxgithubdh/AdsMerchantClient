@@ -68,7 +68,7 @@ public class PreferentialManagerActivity extends Activity{
 			enterStoreDetail();            
 			inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			new GetCouponList().execute(Constants.STORE_ID);
+			
 		}
 
 		
@@ -111,6 +111,7 @@ public class PreferentialManagerActivity extends Activity{
 			context = this;
 			items = new ArrayList<CouponModel>();
 			Pgy.init(context, Constants.APP_ID);
+			new GetCouponList().execute(Constants.STORE_ID);
 		}
 
 		
@@ -178,8 +179,7 @@ public class PreferentialManagerActivity extends Activity{
 							}
 							coupon.setStartTime(item.getString("startTime"));
 							coupon.setEndTime(item.getString("endTime"));
-							coupon.setTitle(item.getString("type"));
-							
+							coupon.setType(item.getString("type"));
 							items.add(coupon);
 							listAdapter.notifyDataSetChanged();
 						}
