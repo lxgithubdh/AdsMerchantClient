@@ -161,6 +161,7 @@ public class PreferentialAddActivity extends Activity {
 		private void onComplete(String json){
 			JsonUtils.parseAddOrUpdateResult(json, "添加", dialog, context);
 			Intent intent = new Intent(context,PreferentialManagerActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 		}
 		

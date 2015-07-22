@@ -193,7 +193,9 @@ public class PreferentialDetailActivity extends Activity{
 		 */
 		private void onComplete(String json){
 			JsonUtils.parseAddOrUpdateResult(json, "更新", dialog, context);
-			startActivity(new Intent(context,GoodsListActivity.class));
+			Intent intent = new Intent(context,GoodsListActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
 		}
 		
 		

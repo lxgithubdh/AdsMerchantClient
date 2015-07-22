@@ -147,6 +147,7 @@ public class GoodsShelvesActivity extends Activity {
 	private void onComplete(String json){
 		JsonUtils.parseAddOrUpdateResult(json, "添加", dialog, context);
 		Intent intent = new Intent(context,GoodsListActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);
 	}
 	
