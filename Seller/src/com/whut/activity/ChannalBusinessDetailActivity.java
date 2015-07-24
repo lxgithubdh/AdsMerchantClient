@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.whut.seller.R;
+import com.whut.util.SlipAction;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -129,5 +132,12 @@ public class ChannalBusinessDetailActivity extends Activity {
 	 */
 	public void onBack(View v) {
 		this.finish();
+	}
+
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		SlipAction.slipToExit(this, ev);
+		return super.dispatchTouchEvent(ev);
 	}
 }

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import com.whut.business.LoginManage;
 import com.whut.config.Constants;
 import com.whut.seller.R;
 import com.whut.util.JsonUtils;
+import com.whut.util.SlipAction;
 
 
 /**
@@ -114,5 +116,12 @@ public class LoginActivity extends Activity{
 			Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
 		}
 		return flag;
+	}
+
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		SlipAction.slipToExit(this, ev);
+		return super.dispatchTouchEvent(ev);
 	}
 }

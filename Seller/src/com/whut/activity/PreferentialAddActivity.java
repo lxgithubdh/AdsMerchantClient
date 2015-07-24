@@ -16,6 +16,8 @@ import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
 import com.whut.util.PickDateDialog;
 import com.whut.util.SelectImage;
+import com.whut.util.SlipAction;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -25,6 +27,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -238,5 +241,12 @@ public class PreferentialAddActivity extends Activity {
 		 */
 		public void onBack(View v){
 			finish();
+		}
+
+
+		@Override
+		public boolean dispatchTouchEvent(MotionEvent ev) {
+			SlipAction.slipToExit(this, ev);
+			return super.dispatchTouchEvent(ev);
 		}
 }

@@ -15,6 +15,8 @@ import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
 import com.whut.util.SelectImage;
+import com.whut.util.SlipAction;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -23,6 +25,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -305,4 +308,11 @@ public class StoreManageActivity extends Activity {
     	notice.setText("海澜之家男装，高品位;多款式面向大众，男人的衣柜,打造\"一站式\"购物体验!");
     	image.setImageResource(R.drawable.header);
     }
+
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		SlipAction.slipToExit(this, ev);
+		return super.dispatchTouchEvent(ev);
+	}
 }

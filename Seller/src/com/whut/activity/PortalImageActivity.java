@@ -3,11 +3,14 @@ package com.whut.activity;
 import com.whut.business.PortalImageManage;
 import com.whut.seller.R;
 import com.whut.util.SelectImage;
+import com.whut.util.SlipAction;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -95,5 +98,12 @@ public class PortalImageActivity extends Activity {
 	protected void onNewIntent(Intent intent) {
 		init();
 		super.onNewIntent(intent);
+	}
+
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		SlipAction.slipToExit(this, ev);
+		return super.dispatchTouchEvent(ev);
 	}
 }

@@ -1,8 +1,11 @@
 package com.whut.activity;
 
 import com.whut.seller.R;
+import com.whut.util.SlipAction;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 
 
@@ -25,5 +28,12 @@ public class AboutActivity extends Activity {
 	 */
 	public void onBack(View v) {
 		this.finish();
+	}
+	
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		SlipAction.slipToExit(this, ev);
+		return super.dispatchTouchEvent(ev);
 	}
 }

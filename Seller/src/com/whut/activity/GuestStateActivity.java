@@ -1,8 +1,11 @@
 package com.whut.activity;
 
 import com.whut.seller.R;
+import com.whut.util.SlipAction;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -31,5 +34,12 @@ public class GuestStateActivity extends Activity {
 	 */
 	public void onRefresh(View e){
 		webView.reload();
+	}
+
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		SlipAction.slipToExit(this, ev);
+		return super.dispatchTouchEvent(ev);
 	}
 }

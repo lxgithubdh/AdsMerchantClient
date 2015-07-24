@@ -13,6 +13,7 @@ import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
 import com.whut.util.SelectImage;
+import com.whut.util.SlipAction;
 import com.whut.config.Constants;
 import com.whut.data.model.GoodsModel;
 import com.whut.imageloader.ImageLoader;
@@ -25,6 +26,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -286,5 +288,12 @@ public class GoodsDetailActivity extends Activity {
 	 */
 	public void onBack(View v){
 		finish();
+	}
+
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		SlipAction.slipToExit(this, ev);
+		return super.dispatchTouchEvent(ev);
 	}
 }

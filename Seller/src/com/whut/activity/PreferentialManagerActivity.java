@@ -15,6 +15,7 @@ import com.whut.data.model.CouponModel;
 import com.whut.imageloader.ImageLoader;
 import com.whut.seller.R;
 import com.whut.util.JsonUtils;
+import com.whut.util.SlipAction;
 import com.whut.util.WebHelper;
 
 import android.app.Activity;
@@ -23,6 +24,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -255,5 +257,12 @@ public class PreferentialManagerActivity extends Activity{
 					// holder.img.setImageBitmap(bitmap);
 					return convertView;
 			}
+		}
+
+
+		@Override
+		public boolean dispatchTouchEvent(MotionEvent ev) {
+			SlipAction.slipToExit(this, ev);
+			return super.dispatchTouchEvent(ev);
 		}
 }
