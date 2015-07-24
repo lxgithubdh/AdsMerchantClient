@@ -44,7 +44,7 @@ public class WelcomActivity extends Activity {
 	 * @return  
 	 */
 	private boolean checkFirstLaunche(){
-		SharedPreferences preferences = this.getSharedPreferences("state", Activity.MODE_PRIVATE);
+		SharedPreferences preferences = this.getSharedPreferences("config", Activity.MODE_PRIVATE);
 		boolean flag = preferences.getBoolean("isFirst", true);
 		if(flag){
 			Editor editor = preferences.edit();
