@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import com.whut.seller.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;

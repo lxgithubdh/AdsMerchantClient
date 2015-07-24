@@ -19,7 +19,7 @@ public class GoodsModel implements Serializable {
 	private double originalPrice; // 原价
 	private double currentPrice; // 现价
 	private boolean isReturnAnytime;//是否支持随时退款
-	private String catgory;//类别
+	private int catgory;//类别
 	private String notice;//注意信息
 	private String buyDetail;//购买详情
 
@@ -39,11 +39,11 @@ public class GoodsModel implements Serializable {
 		this.isReturnAnytime = isReturnAnytime;
 	}
 
-	public String getCatgory() {
+	public int getCatgory() {
 		return catgory;
 	}
 
-	public void setCatgory(String catgory) {
+	public void setCatgory(int catgory) {
 		this.catgory = catgory;
 	}
 

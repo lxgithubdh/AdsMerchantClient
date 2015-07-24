@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -18,8 +17,11 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ChannalBusinessActivity extends Activity implements
-		OnClickListener {
+/**
+ * 渠道业务
+ * @author lx
+ */
+public class ChannalBusinessActivity extends Activity {
 	private List<String> list = new ArrayList<String>();
 	private Context context;
 	private LayoutInflater inflater;
@@ -65,6 +67,11 @@ public class ChannalBusinessActivity extends Activity implements
 		list.add("海澜之家");
 	}
 
+	
+	/**
+	 * 渠道业务适配器
+	 * @author lx
+	 */
 	class ChanelBusinessAdapter extends BaseAdapter {
 
 		class HolderView {
@@ -110,16 +117,12 @@ public class ChannalBusinessActivity extends Activity implements
 
 	}
 
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		switch (v.getId()) {
-		case R.id.channal_business_back_layout:
-			finish();
-			break;
-
-		default:
-			break;
-		}
+	
+	/**
+	 * 返回
+	 * @param v
+	 */
+	public void onBack(View v) {
+		this.finish();
 	}
 }

@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -18,8 +17,12 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ChannalBusinessDetailActivity extends Activity implements
-		OnClickListener {
+
+/**
+ * 渠道业务详情
+ * @author lx
+ */
+public class ChannalBusinessDetailActivity extends Activity {
 	private Context context;
 	private ListView listview;
 	private List<String> list;
@@ -71,6 +74,11 @@ public class ChannalBusinessDetailActivity extends Activity implements
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
+	
+	/**
+	 * 列表适配器
+	 * @author lx
+	 */
 	class ChannelBusinessDetailAdapter extends BaseAdapter {
 		class HolderView {
 			TextView tv;
@@ -115,16 +123,11 @@ public class ChannalBusinessDetailActivity extends Activity implements
 
 	}
 
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		switch (v.getId()) {
-		case R.id.channal_business_detail_back_layout:
-			finish();
-			break;
-
-		default:
-			break;
-		}
+	/**
+	 * 返回
+	 * @param v
+	 */
+	public void onBack(View v) {
+		this.finish();
 	}
 }

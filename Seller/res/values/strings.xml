@@ -5,5 +5,21 @@
     
     <string name="protocal_text"><u>用户协议</u></string>
     <string name="copyright_text">Copyright © 2015年 wushuu. All rights reserved.</string>
+    
+    <!-- 商品类别 -->
+    <string-array name="goods_category">
+        <item key="0">请选择</item>
+        <item key="1">服装</item>
+        <item key="2">餐饮</item>
+        <item key="3">娱乐</item>
+        <item key="4">其他</item>
+    </string-array>
+    
+    <!-- 优惠券类别 -->
+    <string-array name="coupon_category">
+        <item key="0">请选择</item>
+        <item key="1">现金券</item>
+        <item key="2">折价券</item>
+    </string-array>
 
 </resources>

@@ -179,7 +179,7 @@ public class PreferentialManagerActivity extends Activity{
 							}
 							coupon.setStartTime(item.getString("startTime"));
 							coupon.setEndTime(item.getString("endTime"));
-							coupon.setType(item.getString("type"));
+							coupon.setType(item.getIntValue("type"));
 							items.add(coupon);
 							listAdapter.notifyDataSetChanged();
 						}

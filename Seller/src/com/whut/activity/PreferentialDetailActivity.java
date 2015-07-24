@@ -18,7 +18,6 @@ import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
 import com.whut.util.PickDateDialog;
 import com.whut.util.SelectImage;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -29,13 +28,20 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.InputType;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
+/**
+ * 优惠券详情
+ * @author lx
+ */
 public class PreferentialDetailActivity extends Activity{
 	
 	
@@ -55,12 +61,15 @@ public class PreferentialDetailActivity extends Activity{
 		private boolean changeImage = false;
 		//是否可以提交
 		private boolean canSubmit = true;
+		//优惠券类型
+		private  int couponType = 0;
+		//优惠券类型列表
+		private Spinner type;
 		private List<NameValuePair> params = new ArrayList<NameValuePair>() ;  //参数列表
 		private Context context;
 		
 		private EditText desc;
 		private EditText title;
-		private EditText type;
 		private EditText startTime;
 		private EditText endTime;
 		private RadioButton canAllow;
@@ -82,7 +91,7 @@ public class PreferentialDetailActivity extends Activity{
 			RadioGroup group = (RadioGroup)findViewById(R.id.preferential_info_is_allow);
 			desc = (EditText)findViewById(R.id.preferential_info_desc);
 			title = (EditText)findViewById(R.id.preferential_info_title);
-			type = (EditText)findViewById(R.id.preferential_info_type);
+			type = (Spinner)findViewById(R.id.preferential_info_type);
 			startTime = (EditText)findViewById(R.id.preferential_info_start_time);
 			endTime = (EditText)findViewById(R.id.preferential_info_end_time);
 			
@@ -91,7 +100,7 @@ public class PreferentialDetailActivity extends Activity{
 			imageUrl = coupon.getImageUrl();
 			desc.setText(coupon.getDesc());
 			title.setText(coupon.getTitle());
-			type.setText(coupon.getType());
+			type.setSelection(coupon.getType());
 			startTime.setText(coupon.getStartTime());
 			endTime.setText(coupon.getEndTime());
 			if(coupon.isAllow()){
@@ -117,6 +126,21 @@ public class PreferentialDetailActivity extends Activity{
 				}
 			});
 			 
+			type.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View view,
+						int position, long id) {
+					couponType = position;
+				}
+
+				@Override
+				public void onNothingSelected(AdapterView<?> parent) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			
 			handler = new Handler(){
 				@Override
 				public void handleMessage(Message msg){
@@ -228,11 +252,7 @@ public class PreferentialDetailActivity extends Activity{
 				temp = new Date().toString();
 			}
 			params.add(new BasicNameValuePair("endTime", temp));
-			temp =type.getText().toString();
-			if(temp.equals("")){
-				temp = "无";
-			}
-			params.add(new BasicNameValuePair("type", temp));
+			params.add(new BasicNameValuePair("type", String.valueOf(couponType)));
 			
 			params.add(new BasicNameValuePair("isReturnAnytime", isAllow));
 		    params.add(new BasicNameValuePair("imageUrl",imageUrl));

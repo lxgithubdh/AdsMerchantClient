@@ -189,7 +189,7 @@ public class GoodsListActivity extends Activity{
 						}catch(Exception e){
 							goods.setInventory(0);
 						}
-						goods.setCatgory(item.getString("catagory"));
+						goods.setCatgory(item.getIntValue("catagory"));
 						goods.setNotice(item.getString("notice"));
 						goods.setBuyDetail(item.getString("buyDetail"));
 						

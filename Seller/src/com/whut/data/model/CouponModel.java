@@ -17,7 +17,7 @@ public class CouponModel implements Serializable{
     private String desc;   //描述
     private String startTime;          //开始时间
     private String endTime;           //结束时间
-    private String type;           //优惠券类型
+    private int type;           //优惠券类型
     private boolean isAllow;         //是否允许使用
     private String imageUrl;         //图片链接
     
@@ -54,10 +54,10 @@ public class CouponModel implements Serializable{
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-	public String getType() {
+	public int getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 	public boolean isAllow() {

@@ -24,9 +24,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -50,6 +53,10 @@ public class GoodsShelvesActivity extends Activity {
 	private boolean canSubmit = true;
 	//选择图片
 	private SelectImage selectImage;
+	//商品类别
+	private int goodsCategory = 0;
+	//商品类别列表
+	private Spinner category;
 	//添加商品地址
 	private String url = Constants.ADD_GOODS_PATH;
 	private List<NameValuePair> params = new ArrayList<NameValuePair>() ;  //参数列表
@@ -66,6 +73,7 @@ public class GoodsShelvesActivity extends Activity {
 		context = this;
 		Pgy.init(context, Constants.APP_ID);
 		image = (ImageView)findViewById(R.id.goods_info_image);
+		category = (Spinner)findViewById(R.id.goods_info_category);
         dialog = new ProgressDialog(context);
         selectImage = new SelectImage(context);
 		RadioGroup group = (RadioGroup)findViewById(R.id.goods_info_is_return);
@@ -78,6 +86,21 @@ public class GoodsShelvesActivity extends Activity {
 				}else{
 					isReturn = "false";
 				}
+			}
+		});
+		
+		category.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				goodsCategory = position;
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 		 
@@ -175,11 +198,6 @@ public class GoodsShelvesActivity extends Activity {
 			canSubmit = false;
 		}
 		params.add(new BasicNameValuePair("inventory", temp));
-		temp = ((EditText)this.findViewById(R.id.goods_info_category)).getText().toString();
-		if(temp.equals("")){
-			temp = "无";
-		}
-		params.add(new BasicNameValuePair("category", temp));
 		temp =( (EditText)this.findViewById(R.id.goods_info_original_price)).getText().toString();
 		if(temp.equals("")){
 			temp = "0.0";
@@ -200,6 +218,7 @@ public class GoodsShelvesActivity extends Activity {
 			temp = "无";
 		}
 		params.add(new BasicNameValuePair("buyDetail", temp));
+		params.add(new BasicNameValuePair("category", String.valueOf(goodsCategory)));
 		params.add(new BasicNameValuePair("isReturnAnytime", isReturn));
 	    params.add(new BasicNameValuePair("imageUrl",imageUrl));
 	}

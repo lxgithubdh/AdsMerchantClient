@@ -15,7 +15,6 @@ import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
 import com.whut.util.SelectImage;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;

@@ -3,7 +3,6 @@ package com.whut.activity;
 import com.whut.business.PortalImageManage;
 import com.whut.seller.R;
 import com.whut.util.SelectImage;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

@@ -26,10 +26,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -55,12 +58,14 @@ public class GoodsDetailActivity extends Activity {
 	private boolean changeImage = false;
 	//是否可以提交
 	private boolean canSubmit = true;
+	//商品类别
+	private int goodsCategory = 0;
 	private List<NameValuePair> params = new ArrayList<NameValuePair>() ;  //参数列表
 	private Context context;
 	
 	private EditText desc;
 	private EditText title;
-	private EditText category;
+	private Spinner category;
 	private EditText originalPrice;
 	private EditText currentPrice;
 	private EditText inventory;
@@ -85,7 +90,7 @@ public class GoodsDetailActivity extends Activity {
 		RadioGroup group = (RadioGroup)findViewById(R.id.goods_info_is_return);
 		desc = (EditText)findViewById(R.id.goods_info_desc);
 		title = (EditText)findViewById(R.id.goods_info_title);
-		category = (EditText)findViewById(R.id.goods_info_category);
+		category = (Spinner)findViewById(R.id.goods_info_category);
 		originalPrice = (EditText)findViewById(R.id.goods_info_original_price);
 		currentPrice = (EditText)findViewById(R.id.goods_info_current_price);
 		inventory = (EditText)findViewById(R.id.goods_info_inventory);
@@ -97,7 +102,7 @@ public class GoodsDetailActivity extends Activity {
 		imageUrl = goods.getImageUrl();
 		desc.setText(goods.getDesc());
 		title.setText(goods.getTitle());
-		category.setText(goods.getCatgory());
+		category.setSelection(goods.getCatgory());
 		originalPrice.setText(String.valueOf(goods.getOriginalPrice()));
 		currentPrice.setText(String.valueOf(goods.getCurrentPrice()));
 		inventory.setText(String.valueOf(goods.getInventory()));
@@ -126,6 +131,21 @@ public class GoodsDetailActivity extends Activity {
 			}
 		});
 		 
+		category.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				goodsCategory = position;
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		handler = new Handler(){
 			@Override
 			public void handleMessage(Message msg){
@@ -227,11 +247,6 @@ public class GoodsDetailActivity extends Activity {
 			canSubmit = false;
 		}
 		params.add(new BasicNameValuePair("inventory", temp));
-		temp = category.getText().toString();
-		if(temp.equals("")){
-			temp = "无";
-		}
-		params.add(new BasicNameValuePair("category", temp));
 		temp =originalPrice.getText().toString();
 		if(temp.equals("")){
 			temp = "0.0";
@@ -252,6 +267,7 @@ public class GoodsDetailActivity extends Activity {
 			temp = "无";
 		}
 		params.add(new BasicNameValuePair("buyDetail", temp));
+		params.add(new BasicNameValuePair("category", String.valueOf(goodsCategory)));
 		params.add(new BasicNameValuePair("isReturnAnytime", isReturn));
 	    params.add(new BasicNameValuePair("imageUrl",imageUrl));
 	}

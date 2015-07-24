@@ -3,6 +3,7 @@ package com.whut.activity;
 import com.whut.business.WebPageClient;
 import com.whut.seller.R;
 import com.whut.util.WVJBWebViewClient;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
@@ -31,7 +32,4 @@ public class WebPageActivity extends Activity {
 		
 		webView.loadUrl("http://192.168.2.201:18002/1");
 	}
-	
-	
-	
 }
