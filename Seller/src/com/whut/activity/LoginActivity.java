@@ -64,6 +64,7 @@ public class LoginActivity extends Activity{
 				dialog.cancel();
 				if(parseResult(result)){
 					startActivity(new Intent(context,MainActivity.class));
+					LoginActivity.this.finish();
 				}
 				super.handleMessage(msg);
 			}

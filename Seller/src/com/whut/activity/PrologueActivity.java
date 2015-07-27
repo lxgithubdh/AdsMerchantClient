@@ -58,8 +58,8 @@ public class PrologueActivity extends Activity {
 			flipper.showNext();
 		}else{
 			Intent intent = new Intent(PrologueActivity.this,LoginActivity.class);
-			intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			startActivity(intent);
+			PrologueActivity.this.finish();
 		}
 	}
 	

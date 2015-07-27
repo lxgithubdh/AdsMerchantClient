@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.whut.seller"
     android:versionCode="1"
-    android:versionName="1.0.5" >
+    android:versionName="1.0.6" >
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="20" />
+        android:targetSdkVersion="20"  />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取网络状态 -->
@@ -28,27 +28,14 @@
         android:label="@string/app_name"
         android:theme="@style/MyAppTheme" >
         <activity  android:name="com.whut.activity.MainActivity"></activity>
-        <activity
-            android:name="com.whut.activity.LoginActivity" > </activity>
-        <activity
-            android:name="com.whut.activity.ChannalBusinessActivity">
-        </activity>
-        <activity
-            android:name="com.whut.activity.MemberManagerActivity">
-        </activity>
-        <activity
-            android:name="com.whut.activity.CommentManagerActivity" >
-        </activity>
-        <activity
-            android:name="com.whut.activity.AboutActivity">
-        </activity>
-        <activity
-            android:name="com.whut.activity.ChannalBusinessDetailActivity">
-        </activity>
-      <activity 
-            android:name="com.whut.activity.GoodsShelvesActivity">
-        </activity>
-       <activity android:name="com.whut.activity.GoodsListActivity"> </activity>
+        <activity  android:name="com.whut.activity.LoginActivity"></activity>
+        <activity  android:name="com.whut.activity.ChannalBusinessActivity"></activity>
+        <activity  android:name="com.whut.activity.MemberManagerActivity"></activity>
+        <activity  android:name="com.whut.activity.CommentManagerActivity" ></activity>
+        <activity  android:name="com.whut.activity.AboutActivity"></activity>
+        <activity  android:name="com.whut.activity.ChannalBusinessDetailActivity"></activity>
+        <activity  android:name="com.whut.activity.GoodsShelvesActivity"></activity>
+       <activity android:name="com.whut.activity.GoodsListActivity"></activity>
        <activity android:name="com.whut.activity.GoodsDetailActivity"
            android:windowSoftInputMode="stateHidden"></activity>
        <activity android:name="com.whut.activity.StoreManageActivity"
@@ -74,14 +61,7 @@
         
         <receiver android:name="com.whut.component.InstallReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
-                <action android:name="android.intent.action.PACKAGE_ADDED"/>
-                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
-                <action android:name="android.intent.action.PACKAGE_FIRST_LAUNCH"/>
-                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
-                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
                 <action android:name="android.intent.action.PACKAGE_REMOVED"/>
-                <action android:name="android.intent.action.PACKAGE_RESTARTED"/>
                 <data android:scheme="package"/>
             </intent-filter>
         </receiver>
