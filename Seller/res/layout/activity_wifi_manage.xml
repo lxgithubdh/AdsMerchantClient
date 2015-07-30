@@ -6,22 +6,6 @@
     
     <include layout="@layout/wifi_manage_titlebar"/>
     
-    <RelativeLayout 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
-        <include layout="@layout/common_web_view"/>
-        
-        <Button 
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="刷新"
-            android:textSize="18sp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:alpha="0.6"
-            android:onClick="onRefresh"/>
-    </RelativeLayout>
-
+    <include layout="@layout/common_web_view"/>
+      
 </LinearLayout>

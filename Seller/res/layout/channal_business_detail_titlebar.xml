@@ -2,26 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/title_bg_style" >
 
-    <LinearLayout
-        android:id="@+id/channal_business_detail_back_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:onClick="onBack"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:layout_width="10dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="5dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/back" />
-
-        
-    </LinearLayout>
+   <include layout="@layout/back_icon"/>
 
     <TextView
         android:id="@+id/channal_business_detail_title"

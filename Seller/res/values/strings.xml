@@ -8,18 +8,16 @@
     
     <!-- 商品类别 -->
     <string-array name="goods_category">
-        <item key="0">请选择</item>
-        <item key="1">服装</item>
-        <item key="2">餐饮</item>
-        <item key="3">娱乐</item>
-        <item key="4">其他</item>
+        <item value="0">服装</item>
+        <item value="1">餐饮</item>
+        <item value="2">娱乐</item>
+        <item value="3">其他</item>
     </string-array>
     
     <!-- 优惠券类别 -->
     <string-array name="coupon_category">
-        <item key="0">请选择</item>
-        <item key="1">现金券</item>
-        <item key="2">折价券</item>
+        <item value="0">现金券</item>
+        <item value="1">折价券</item>
     </string-array>
 
 </resources>

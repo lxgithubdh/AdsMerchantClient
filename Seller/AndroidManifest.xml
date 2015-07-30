@@ -48,7 +48,9 @@
                   android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name="com.whut.activity.PreferentialManagerActivity"></activity>
         <activity android:name="com.whut.activity.WiFiManageActivity"></activity>
-        <activity android:name="com.whut.activity.GuestStateActivity"></activity>
+        <activity android:name="com.whut.activity.GuestStateActivity">
+            
+        </activity>
         <activity android:name="com.whut.activity.SettingActivity"></activity>
         <activity android:name="com.whut.activity.PrologueActivity"></activity>
         <activity android:name="com.whut.activity.WelcomActivity" 
@@ -61,6 +63,10 @@
         
         <receiver android:name="com.whut.component.InstallReceiver">
             <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                
                 <action android:name="android.intent.action.PACKAGE_REMOVED"/>
                 <data android:scheme="package"/>
             </intent-filter>

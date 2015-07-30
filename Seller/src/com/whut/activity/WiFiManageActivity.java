@@ -19,6 +19,8 @@ public class WiFiManageActivity extends Activity {
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_wifi_manage);
 		webView = (WebView)findViewById(R.id.common_web_view);
+		webView.loadUrl("http://192.168.2.116/aj/");
+		webView.getSettings().setJavaScriptEnabled(true);
 	}
 	
 	
