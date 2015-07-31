@@ -1,5 +1,9 @@
 package com.whut.config;
 
+/**
+ * 应用常量
+ * @author lx
+ */
 public class Constants {
 	
 	//http请求地址

@@ -13,7 +13,7 @@ import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
 import com.whut.util.SelectImage;
-import com.whut.util.SlipAction;
+import com.whut.util.BackAction;
 import com.whut.config.Constants;
 
 import android.app.Activity;
@@ -246,7 +246,7 @@ public class GoodsShelvesActivity extends Activity {
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		SlipAction.slipToExit(this, ev);
+		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
 	}
 }

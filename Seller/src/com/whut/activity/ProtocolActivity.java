@@ -5,13 +5,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import com.whut.seller.R;
-import com.whut.util.SlipAction;
+import com.whut.util.BackAction;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+/**
+ * 协议界面
+ * @author lx
+ */
 public class ProtocolActivity extends Activity {
 
 	
@@ -50,7 +54,7 @@ public class ProtocolActivity extends Activity {
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		SlipAction.slipToExit(this, ev);
+		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
 	}
 }

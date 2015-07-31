@@ -13,7 +13,7 @@ import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
 import com.whut.util.SelectImage;
-import com.whut.util.SlipAction;
+import com.whut.util.BackAction;
 import com.whut.config.Constants;
 import com.whut.data.model.GoodsModel;
 import com.whut.imageloader.ImageLoader;
@@ -40,7 +40,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 
 /**
  * @author lx
- *商品上架
+ *商品详情
  */
 public class GoodsDetailActivity extends Activity {
 
@@ -293,7 +293,7 @@ public class GoodsDetailActivity extends Activity {
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		SlipAction.slipToExit(this, ev);
+		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
 	}
 }

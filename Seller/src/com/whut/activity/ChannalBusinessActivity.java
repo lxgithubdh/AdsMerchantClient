@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.whut.seller.R;
-import com.whut.util.SlipAction;
+import com.whut.util.BackAction;
 
 import android.app.Activity;
 import android.content.Context;
@@ -132,7 +132,7 @@ public class ChannalBusinessActivity extends Activity {
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		SlipAction.slipToExit(this, ev);
+		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
 	}
 }

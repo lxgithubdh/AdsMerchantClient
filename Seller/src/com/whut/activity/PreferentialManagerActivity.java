@@ -15,7 +15,7 @@ import com.whut.data.model.CouponModel;
 import com.whut.imageloader.ImageLoader;
 import com.whut.seller.R;
 import com.whut.util.JsonUtils;
-import com.whut.util.SlipAction;
+import com.whut.util.BackAction;
 import com.whut.util.WebHelper;
 
 import android.app.Activity;
@@ -262,7 +262,7 @@ public class PreferentialManagerActivity extends Activity{
 
 		@Override
 		public boolean dispatchTouchEvent(MotionEvent ev) {
-			SlipAction.slipToExit(this, ev);
+			BackAction.slipToExit(this, ev);
 			return super.dispatchTouchEvent(ev);
 		}
 }

@@ -32,7 +32,7 @@ import com.whut.data.model.GoodsModel;
 import com.whut.imageloader.ImageLoader;
 import com.whut.seller.R;
 import com.whut.util.JsonUtils;
-import com.whut.util.SlipAction;
+import com.whut.util.BackAction;
 import com.whut.util.WebHelper;
 
 /**
@@ -282,7 +282,7 @@ public class GoodsListActivity extends Activity{
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		SlipAction.slipToExit(this, ev);
+		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
 	}
 }

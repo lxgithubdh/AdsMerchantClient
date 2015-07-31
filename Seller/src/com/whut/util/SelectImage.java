@@ -17,6 +17,10 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.widget.Toast;
 
+/**
+ * 处理选择图片
+ * @author lx
+ */
 public class SelectImage {
 
 	

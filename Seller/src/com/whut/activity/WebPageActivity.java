@@ -2,7 +2,7 @@ package com.whut.activity;
 
 import com.whut.business.WebPageClient;
 import com.whut.seller.R;
-import com.whut.util.SlipAction;
+import com.whut.util.BackAction;
 import com.whut.util.WVJBWebViewClient;
 
 import android.annotation.SuppressLint;
@@ -14,7 +14,7 @@ import android.webkit.WebView;
 
 
 /**
- * 显示HTML5
+ * 显示HTML5商店模板
  * @author lx
  */
 public class WebPageActivity extends Activity {
@@ -38,7 +38,7 @@ public class WebPageActivity extends Activity {
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		SlipAction.slipToExit(this, ev);
+		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
 	}
 }

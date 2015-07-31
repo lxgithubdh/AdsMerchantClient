@@ -10,6 +10,10 @@ import com.whut.imageloader.CacheConfig;
 import com.whut.imageloader.ImageLoader;
 import com.whut.seller.R;
 
+/**
+ * 初始化应用信息
+ * @author lx
+ */
 public class MyApplication extends Application {
 	@Override
 	public void onCreate() {

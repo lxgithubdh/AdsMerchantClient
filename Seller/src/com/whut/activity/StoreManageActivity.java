@@ -15,7 +15,7 @@ import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
 import com.whut.util.SelectImage;
-import com.whut.util.SlipAction;
+import com.whut.util.BackAction;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -31,6 +31,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+/**
+ * 店铺信息管理
+ * @author lx
+ */
 public class StoreManageActivity extends Activity {
 
 	
@@ -312,7 +316,7 @@ public class StoreManageActivity extends Activity {
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		SlipAction.slipToExit(this, ev);
+		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
 	}
 }

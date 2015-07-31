@@ -21,7 +21,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
 /**
- * @author Administrator 
+ * 处理网络请求
+ * @author lx 
  */
 public class WebHelper {
 	

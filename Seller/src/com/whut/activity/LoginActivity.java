@@ -18,7 +18,7 @@ import com.whut.business.LoginManage;
 import com.whut.config.Constants;
 import com.whut.seller.R;
 import com.whut.util.JsonUtils;
-import com.whut.util.SlipAction;
+import com.whut.util.BackAction;
 
 
 /**
@@ -122,7 +122,7 @@ public class LoginActivity extends Activity{
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		SlipAction.slipToExit(this, ev);
+		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
 	}
 }

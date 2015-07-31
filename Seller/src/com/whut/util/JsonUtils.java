@@ -7,6 +7,10 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 
+/**
+ * 用于解析Json数据
+ * @author lx
+ */
 public class JsonUtils {
 
 	public static boolean isGoodJson(String str) {

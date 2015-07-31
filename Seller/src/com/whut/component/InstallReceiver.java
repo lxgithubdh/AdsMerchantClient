@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 /**
- * 监听应用安装事件
+ * 监听应用卸载事件
  * @author lx
  */
 public class InstallReceiver extends BroadcastReceiver {
