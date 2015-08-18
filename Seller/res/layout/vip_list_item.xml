@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+     xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/vip_item_frame"
+    android:paddingLeft="10dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="5dp"
+    android:layout_marginBottom="5dp">
+    
+    <com.whut.util.CircleImageView
+        android:id="@+id/vip_portrait"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="10dp"/>
+    
+    <TextView 
+        android:id="@+id/vip_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/vip_portrait"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"/>
+    
+    <TextView 
+        android:id="@+id/vip_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vip_user_name"
+        android:layout_alignLeft="@id/vip_user_name"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"/>
+    
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/vip_portrait"
+        android:layout_marginRight="10dp">
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:text="进店时间："
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/vip_enter_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="15sp"/>
+    </LinearLayout>
+
+</RelativeLayout>
+</LinearLayout>
+

@@ -15,7 +15,7 @@
     <!--标题栏样式 -->
     <style name="title_bg_style" parent="AppTheme">
         <item name="android:background">@color/title_bg</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">10dp</item>

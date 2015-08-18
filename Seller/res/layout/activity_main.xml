@@ -1,104 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relate"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#FFFFFF" >
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-
-        <ImageView
-            android:id="@+id/run_image"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/background" />
-    </LinearLayout>
-
-    <com.whut.util.ScrollLayout
-        android:id="@+id/views"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="110dp" />
-
-    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:background="@color/white">
+    
+    <LinearLayout 
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="30dp"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentTop="true"
-            android:scaleType="fitStart"
-            android:src="@drawable/logo" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_alignParentRight="true"
-        android:layout_margin="20dip" >
-
-        <TextView
-            android:id="@+id/tv_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/pageid"
+        android:layout_weight="0.25"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+        <LinearLayout
+            android:id="@+id/goto_preferential_manage"
+            android:layout_weight="0.36"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:background="#bbe66d"
             android:gravity="center"
-            android:textColor="#ffffff"
-            android:visibility="gone" />
-    </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/dels"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/del_check"
-        android:visibility="gone" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/relativeLayout1"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="12dp"
-        android:layout_marginLeft="20dp"
-        android:orientation="vertical" >
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="18dip"
-            android:background="@drawable/bar_code"
-            android:onClick="settings" />
+            android:onClick="onClick">
+            <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView 
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/preferential_manage"/>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="优惠管理"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"/>
+            </LinearLayout>
+        </LinearLayout>
         
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="18dip"
-            android:background="@drawable/settings"
-            android:onClick="settings" />
+         <RelativeLayout
+             android:id="@+id/goto_guest_flow"
+            android:layout_weight="0.64"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="#00c0c8"
+            android:onClick="onClick">
+            <ImageView 
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/guest_flow"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"/>
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:text="客流情况"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_weight="0.375"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+         
+        <LinearLayout
+            android:id="@+id/goto_store_manage"
+            android:layout_weight="0.64"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:background="#feb549"
+            android:gravity="center"
+            android:onClick="onClick">
+             <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView 
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/store_manage"/>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="我的店铺"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_weight="0.36"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            
+            <LinearLayout 
+                android:id="@+id/goto_order_manage"
+                android:layout_weight="0.5"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:background="#f7835d"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:onClick="onClick">
+                 <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView 
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/order_manage"/>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="订单管理"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"/>
+            	</LinearLayout>
+            </LinearLayout>
 
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginBottom="18dip"
-            android:background="@drawable/exit"
-            android:onClick="back" />
+            <LinearLayout
+                android:id="@+id/goto_member_manage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:background="#eeeeee"
+                android:gravity="center" 
+                android:onClick="onClick">
+                 <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView 
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/member_manage"/>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="会员管理"
+                    android:textColor="#777777"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"/>
+            	</LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_weight="0.25"
+        android:layout_height="0dp"
+        android:orientation="horizontal">
+        
+        <LinearLayout
+            android:layout_weight="0.4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginRight="5dp">
+            
+            <LinearLayout 
+                android:id="@+id/goto_wifi_manage"
+                android:layout_weight="0.5"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:background="#fe697a"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:onClick="onClick">
+                 <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView 
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/wifi_manage"/>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="WIFI管理"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"/>
+            	</LinearLayout>
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:id="@+id/goto_comment"
+                android:layout_weight="0.5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#c09df4"
+                android:gravity="center"
+                android:onClick="onClick">
+                 <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView 
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/comment"/>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="查看评论"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"/>
+            	</LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+         
+        <RelativeLayout
+            android:id="@+id/goto_ads_manage"
+            android:layout_weight="0.6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="#54c8fe"
+            android:onClick="onClick">
+            <ImageView 
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ads_manage"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"/>
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:text="广告管理"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.06">
+    </LinearLayout>
+    
     </LinearLayout>
 
+    <ImageView 
+        	android:onClick="showInfo"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/portrait"
+            android:scaleType="fitStart"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"/>
+        
+        <LinearLayout
+            android:id="@+id/vip_info"
+            android:layout_width="200dp"
+            android:layout_height="49dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="7.5dp"
+            android:background="@drawable/vip_info_bg" 
+            android:orientation="horizontal">
+    			<ImageView 
+    			    android:layout_width="wrap_content"
+    			    android:layout_height="match_parent"
+    			    android:src="@drawable/portrait"/>
+    			<TextView
+    			    android:layout_width="wrap_content"
+    			    android:layout_height="match_parent"
+    			    android:textSize="16sp"
+    			    android:textColor="@color/black"
+    			    android:text="vip进店！"
+    			    android:gravity="center_vertical"/>
+            </LinearLayout>
+        
+        <ImageView
+        	android:id="@+id/vip_suspension"
+            android:onClick="showDetail"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/vip_suspension"
+            android:scaleType="fitEnd"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"/>
 </RelativeLayout>
+

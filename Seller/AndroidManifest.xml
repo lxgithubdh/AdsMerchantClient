@@ -27,7 +27,12 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/MyAppTheme" >
-        <activity  android:name="com.whut.activity.MainActivity"></activity>
+        <activity  android:name="com.whut.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
         <activity  android:name="com.whut.activity.LoginActivity"></activity>
         <activity  android:name="com.whut.activity.ChannalBusinessActivity"></activity>
         <activity  android:name="com.whut.activity.MemberManagerActivity"></activity>
@@ -48,25 +53,17 @@
                   android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name="com.whut.activity.PreferentialManagerActivity"></activity>
         <activity android:name="com.whut.activity.WiFiManageActivity"></activity>
-        <activity android:name="com.whut.activity.GuestStateActivity">
-            
-        </activity>
+        <activity android:name="com.whut.activity.GuestStateActivity"></activity>
         <activity android:name="com.whut.activity.SettingActivity"></activity>
         <activity android:name="com.whut.activity.PrologueActivity"></activity>
+        <activity android:name="com.whut.activity.OrderManageActivity"></activity>
+        <activity android:name="com.whut.activity.AdsManagerActivity"></activity>
+        <activity android:name="com.whut.activity.VipRecordActivity"></activity>
         <activity android:name="com.whut.activity.WelcomActivity" 
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+            android:label="@string/app_name"></activity>
         
         <receiver android:name="com.whut.component.InstallReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
-                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
-                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
-                
                 <action android:name="android.intent.action.PACKAGE_REMOVED"/>
                 <data android:scheme="package"/>
             </intent-filter>

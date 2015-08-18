@@ -21,9 +21,10 @@ public class DateAdapter extends BaseAdapter {
 	private ArrayList<String> lstDate;
 	private int windowHeight;
 	private int windowWidth;
-	private static final int[] icons = { R.drawable.channal_business, R.drawable.wifi_manage,
+	private static final int[] icons = null;
+		/*{ R.drawable.channal_business, R.drawable.wifi_manage,
 			R.drawable.preferential_manage, R.drawable.real_store_manage, R.drawable.account_manage,
-			R.drawable.comment, R.drawable.portal, R.drawable.guest_flow };
+			R.drawable.comment, R.drawable.portal, R.drawable.guest_flow };*/
 
 	@SuppressWarnings("deprecation")
 	public DateAdapter(Activity mContext, ArrayList<String> list) {

@@ -77,7 +77,7 @@ public class LoginActivity extends Activity{
 	 * 登录
 	 */
 	public void logIn(View v){
-		dialog.show();
+		/*dialog.show();
 		dialog.setCancelable(false);
 		String userString = userName.getText().toString();
 		String psdString = password.getText().toString();
@@ -88,10 +88,10 @@ public class LoginActivity extends Activity{
 		}
 		String result = LoginManage.checkPassword(userString, psdString,handler);
 		dialog.cancel();
-		if(parseResult(result)){
+		if(parseResult(result)){*/
 			startActivity(new Intent(context,MainActivity.class));
 			LoginActivity.this.finish();
-		}
+		//}
 	}
 	
 	/**

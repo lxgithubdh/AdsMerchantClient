@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <include layout="@layout/vip_record_titilebar"/>
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <View 
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#f9cb53"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"/>
+        
+        <ScrollView 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout 
+    		android:id="@+id/vip_list"
+   		 	android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:paddingRight="10dp" 
+            android:layout_marginTop="2dp"
+            android:orientation="vertical">
+		</LinearLayout>
+        </ScrollView>
+        
+    </RelativeLayout>
+    
+
+</LinearLayout>
