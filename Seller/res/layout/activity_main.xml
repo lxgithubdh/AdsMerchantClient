@@ -284,12 +284,14 @@
 
     <ImageView 
         	android:onClick="showInfo"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
             android:src="@drawable/portrait"
             android:scaleType="fitStart"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:paddingBottom="8dp"/>
         
         <LinearLayout
             android:id="@+id/vip_info"
@@ -302,8 +304,8 @@
             android:background="@drawable/vip_info_bg" 
             android:orientation="horizontal">
     			<ImageView 
-    			    android:layout_width="wrap_content"
-    			    android:layout_height="match_parent"
+    			    android:layout_width="48dp"
+    			    android:layout_height="48dp"
     			    android:src="@drawable/portrait"/>
     			<TextView
     			    android:layout_width="wrap_content"

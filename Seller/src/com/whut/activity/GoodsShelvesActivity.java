@@ -8,7 +8,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import com.pgyersdk.Pgy;
 import com.whut.seller.R;
-import com.whut.util.AsyncHttpPost;
+import com.whut.util.AsyncPost;
 import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
@@ -230,7 +230,7 @@ public class GoodsShelvesActivity extends Activity {
 	 * 提交数据
 	 */
 	private void submitGoods(){
-		AsyncHttpPost asyncHttpPost = new AsyncHttpPost(url, params,handler,0);     //发起Post请求
+		AsyncPost asyncHttpPost = new AsyncPost(url, params,handler,0);     //发起Post请求
 		asyncHttpPost.execute();
 	}
 	

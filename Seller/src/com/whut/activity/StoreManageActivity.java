@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.pgyersdk.Pgy;
 import com.whut.config.Constants;
 import com.whut.seller.R;
-import com.whut.util.AsyncHttpPost;
+import com.whut.util.AsyncPost;
 import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
@@ -68,9 +68,9 @@ public class StoreManageActivity extends Activity {
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_store_manage);
 		
-		init();
+		//init();
 		//getInitData();
-		setInitData(new JSONObject());
+		//setInitData(new JSONObject());
 	}
 	
 	
@@ -255,7 +255,7 @@ public class StoreManageActivity extends Activity {
 	 */
 	private void submitStoreMsg(){
 		String url = Constants.UPDATE_STORE_PATH;                                                           //提交更新信息网址
-		AsyncHttpPost asyncHttpPost = new AsyncHttpPost(url, params,handler,0);     //发起Post请求
+		AsyncPost asyncHttpPost = new AsyncPost(url, params,handler,0);     //发起Post请求
 		asyncHttpPost.execute();
 	}
 	

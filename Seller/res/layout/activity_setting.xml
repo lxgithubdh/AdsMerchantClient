@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     xmlns:android="http://schemas.android.com/apk/res/android" 
+     xmlns:app="http://schemas.android.com/apk/res/com.whut.seller">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginBottom="3dp"
+        android:orientation="vertical">
+        
+        <RelativeLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:paddingTop="30dp"
+                android:paddingBottom="20dp">
+                <com.whut.util.CircleImageView
+					android:id="@+id/user_portrait"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:border_color="#00ffffff"
+                    android:src="@drawable/header"/>
+                <TextView 
+                    android:id="@+id/user_nick_name"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
+                    android:text="妙手回春"/>
+            </LinearLayout>
+            
+            <ImageView 
+                style="@style/more_icon_style"
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"/>
+            
+        </RelativeLayout>
+        
+        <View 
+            android:layout_width="180dp"
+            android:layout_height="0.5dp"
+            android:background="@color/gray"
+            android:layout_gravity="center_horizontal"/>
+        
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+            <ImageView 
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/barcode"/>
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_marginLeft="8dp"
+                android:text="商店二维码"/>
+        </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginBottom="3dp">
+        <RelativeLayout
+             style="@style/input_item_style"
+             android:paddingRight="10dp">
+            <TextView
+                    style="@style/input_attr_style"
+                    android:text="账号信息"/>
+            <ImageView 
+                style="@style/more_icon_style"/>
+        </RelativeLayout>
+        
+        <View 
+            style="@style/dividing_line_style"/>
+        
+        <RelativeLayout
+             style="@style/input_item_style"
+             android:paddingRight="10dp">
+            <TextView
+                    style="@style/input_attr_style"
+                    android:text="聊天公告"/>
+            <ImageView 
+                style="@style/more_icon_style"/>
+        </RelativeLayout>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <RelativeLayout
+             style="@style/input_item_style"
+             android:paddingRight="10dp">
+            <TextView
+                    style="@style/input_attr_style"
+                    android:text="关于商店"/>
+            <ImageView 
+                style="@style/more_icon_style"/>
+        </RelativeLayout>
+        
+        <View 
+            style="@style/dividing_line_style"/>
+        
+        <RelativeLayout
+             style="@style/input_item_style"
+             android:paddingRight="10dp">
+            <TextView
+                    style="@style/input_attr_style"
+                    android:text="帮助与反馈"/>
+            <ImageView 
+                style="@style/more_icon_style"/>
+        </RelativeLayout>
+        
+        <View 
+            style="@style/dividing_line_style"/>
+        
+        <RelativeLayout
+             style="@style/input_item_style"
+             android:paddingRight="10dp">
+            <TextView
+                    style="@style/input_attr_style"
+                    android:text="清除缓存"/>
+            <ImageView 
+                style="@style/more_icon_style"/>
+        </RelativeLayout>
+        
+        <View 
+            style="@style/dividing_line_style"/>
+        
+        <RelativeLayout
+             style="@style/input_item_style"
+             android:paddingRight="10dp">
+            <TextView
+                    style="@style/input_attr_style"
+                    android:text="版本检测"/>
+            <ImageView 
+                style="@style/more_icon_style"/>
+        </RelativeLayout>
+        
+        <View 
+            style="@style/dividing_line_style"/>
+        
+        <RelativeLayout
+             style="@style/input_item_style"
+             android:paddingRight="10dp">
+            <TextView
+                    style="@style/input_attr_style"
+                    android:text="退出"/>
+            <ImageView 
+                style="@style/more_icon_style"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>
+

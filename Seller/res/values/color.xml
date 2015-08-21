@@ -12,7 +12,8 @@
     <!-- 蓝色 -->
     <color name="white">#ffffff</color>
     <!-- 白色 -->
-    
+    <!-- 应用主色调 蓝 -->
+    <color name="main_color">#0093ea</color>
     <!-- 标题栏背景-->
      <color name="title_bg">#ffffff</color>
 </resources>

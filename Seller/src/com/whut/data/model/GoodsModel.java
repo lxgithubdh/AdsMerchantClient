@@ -22,6 +22,7 @@ public class GoodsModel implements Serializable {
 	private int catgory;//类别
 	private String notice;//注意信息
 	private String buyDetail;//购买详情
+	private int sales;  //销量
 
 	public String getImageUrl() {
 		return imageUrl;
@@ -111,6 +112,14 @@ public class GoodsModel implements Serializable {
 
 	public void setCurrentPrice(double currentPrice) {
 		this.currentPrice = currentPrice;
+	}
+
+	public int getSales() {
+		return sales;
+	}
+
+	public void setSales(int sales) {
+		this.sales = sales;
 	}
 
 }

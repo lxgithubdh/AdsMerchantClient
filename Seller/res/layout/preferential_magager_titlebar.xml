@@ -18,6 +18,6 @@
         android:layout_centerVertical="true"
         android:onClick="addCoupon"
         android:clickable="true"
-        android:src="@drawable/add" />
+        android:src="@drawable/add_hollow" />
 
 </RelativeLayout>

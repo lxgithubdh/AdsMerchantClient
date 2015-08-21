@@ -11,7 +11,7 @@ import com.whut.activity.PortalImageActivity;
 import com.whut.config.Constants;
 import com.whut.imageloader.ImageLoader;
 import com.whut.seller.R;
-import com.whut.util.AsyncHttpPost;
+import com.whut.util.AsyncPost;
 import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
@@ -117,7 +117,7 @@ public class PortalImageManage {
 	 */
 	private void updatePortalImage(Handler handler){
 		String url = Constants.UPDATE_PORTAL_IMAGE;                           //提交更新信息网址
-		new AsyncHttpPost(url, param,handler,0).execute();                              //发送post请求
+		new AsyncPost(url, param,handler,0).execute();                              //发送post请求
 	}
 	
 	

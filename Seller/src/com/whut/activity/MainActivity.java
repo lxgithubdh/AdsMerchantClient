@@ -1,7 +1,5 @@
 package com.whut.activity;
 
-import java.util.Random;
-
 import com.whut.seller.R;
 import com.whut.util.BadgeView;
 
@@ -10,9 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -60,7 +55,7 @@ public class MainActivity extends Activity{
 			startActivity(intent);
 			break;
 		case  R.id.goto_order_manage:             //订单管理
-			intent = new Intent(context,OrderManageActivity.class);
+			intent = new Intent(context,GoodsListActivity.class);
 			startActivity(intent);
 			break;
 		case  R.id.goto_member_manage:             //会员管理

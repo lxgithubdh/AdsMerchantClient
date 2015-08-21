@@ -6,6 +6,36 @@
     
     <include layout="@layout/goods_list_titlebar"/>
 
-    <include layout="@layout/common_list_view"/>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/white">
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/main_color"
+            android:textSize="18sp"
+            android:text="销量"/>
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/main_color"
+            android:textSize="18sp"
+            android:text="库存"/>
+    </LinearLayout>
+    
+    <FrameLayout 
+        android:id="@+id/goods_list_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
 
 </LinearLayout>

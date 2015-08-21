@@ -12,7 +12,7 @@ import com.whut.config.Constants;
 import com.whut.data.model.CouponModel;
 import com.whut.imageloader.ImageLoader;
 import com.whut.seller.R;
-import com.whut.util.AsyncHttpPost;
+import com.whut.util.AsyncPost;
 import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
@@ -264,7 +264,7 @@ public class PreferentialDetailActivity extends Activity{
 		 * 提交数据
 		 */
 		private void submitCoupon(){
-			AsyncHttpPost asyncHttpPost = new AsyncHttpPost(Constants.UPDATE_COUPON_PATH, params,handler,0);     //发起Post请求
+			AsyncPost asyncHttpPost = new AsyncPost(Constants.UPDATE_COUPON_PATH, params,handler,0);     //发起Post请求
 			asyncHttpPost.execute();
 		}
 		

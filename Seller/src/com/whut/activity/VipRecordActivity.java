@@ -2,7 +2,6 @@ package com.whut.activity;
 
 import java.util.ArrayList;
 
-import com.pgyersdk.utils.n;
 import com.whut.data.model.VipDetailModel;
 import com.whut.data.model.VipRecordModel;
 import com.whut.imageloader.ImageLoader;
@@ -33,8 +32,6 @@ public class VipRecordActivity extends Activity implements IBaseView{
 
 	//显示vip进店记录列表
 	private LinearLayout layout;
-	//程序上下文
-	private Context context;
 	//vip进店管理控制器
 	private VipListPresenter presenter;
 	//布局管理
@@ -46,7 +43,6 @@ public class VipRecordActivity extends Activity implements IBaseView{
 		setContentView(R.layout.activity_vip_record);
 		
 		layout = (LinearLayout)findViewById(R.id.vip_list);
-		context = this;
 		inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		presenter = new VipListPresenter(this);
 		presenter.setInfo();
@@ -155,30 +151,19 @@ class VipListAdapter extends BaseAdapter{
 
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
-		ViewHolder holder;
-		if (view == null) {
-			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.vip_list_item,
-					null);
-			holder.vipUserName = (TextView) view
-					.findViewById(R.id.vip_user_name);
-			holder.vipPortrait = (ImageView)view.findViewById(R.id.vip_portrait);
-			holder.vipTag = (TextView)view.findViewById(R.id.vip_tag);
-			holder.vipEnterTime = (TextView)view.findViewById(R.id.vip_enter_time);
-		} else {
+		ViewHolder holder = null;
+		if (view != null) {
 			holder = (ViewHolder) view.getTag();
-			if (holder == null) {
-				holder = new ViewHolder();
-				view = inflater.inflate(R.layout.vip_list_item,
-						null);
-				holder.vipUserName = (TextView) view
-						.findViewById(R.id.vip_user_name);
-				holder.vipPortrait = (ImageView)view.findViewById(R.id.vip_portrait);
-				holder.vipTag = (TextView)view.findViewById(R.id.vip_tag);
-				holder.vipEnterTime = (TextView)view.findViewById(R.id.vip_enter_time);
-				view.setTag(holder);
-			}
-		}
+		} 
+		holder = new ViewHolder();
+		view = inflater.inflate(R.layout.vip_list_item,
+				null);
+		holder.vipUserName = (TextView) view
+				.findViewById(R.id.vip_user_name);
+		holder.vipPortrait = (ImageView)view.findViewById(R.id.vip_portrait);
+		holder.vipTag = (TextView)view.findViewById(R.id.vip_tag);
+		holder.vipEnterTime = (TextView)view.findViewById(R.id.vip_enter_time);
+		view.setTag(holder);
 		VipDetailModel model = models.get(position);
 		holder.vipUserName.setText(model.getVipUserName());
 		holder.vipTag.setText(model.getVipTag());

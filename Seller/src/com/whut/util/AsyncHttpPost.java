@@ -4,33 +4,28 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 
+import com.whut.interfaces.IBasePresenter;
+
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 
 /**
- * 发送Post请求
+ * 异步网络请求
  * @author lx
- *
  */
-public class AsyncHttpPost extends AsyncTask<Void, Integer, String> {
+public class AsyncHttpPost extends AsyncTask<String, Void, String> {
 
 	private String url;
 	private List<NameValuePair> values;
-	private Handler handler;
-	//结果类型，0：更新、添加；1：上传；2：获取数据
-	private int what;
+	private IBasePresenter presenter;
 
-	public AsyncHttpPost(String url,List<NameValuePair> vlaues,Handler handler,int what){
+	public AsyncHttpPost(String url,List<NameValuePair> vlaues,IBasePresenter presenter){
 		this.url = url;
 		this.values = vlaues;
-		this.handler = handler;
-		this.what = what;
+		this.presenter = presenter;
 	}
 	
 	@Override
-	protected String doInBackground(Void... params) {
+	protected String doInBackground(String... params) {
 		String result = "";
 		try {
 			result = WebHelper.getJsonString(url, values);
@@ -42,12 +37,8 @@ public class AsyncHttpPost extends AsyncTask<Void, Integer, String> {
 	
 	@Override
 	protected void onPostExecute(String res){
-		Bundle bundle = new Bundle();
-		bundle.putString("res", res);
-		Message msg = new Message();
-		msg.setData(bundle);
-		msg.what=what;
-		handler.sendMessage(msg);
+		super.onPostExecute(res);
+		presenter.showData(res);
 	}
-	
+
 }
