@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    <Button
+        android:id="@+id/goods_detail_off_shelves"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:gravity="center"
+        android:textColor="@color/main_color"
+        android:textSize="20sp"
+        android:text="下架商品"
+        android:onClick="onOffShelvesGoods"
+        android:background="@drawable/goods_detail_button_bg"/>
+    <Button
+        android:id="@+id/goods_detail_delete"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:gravity="center"
+        android:textColor="@color/main_color"
+        android:textSize="20sp"
+        android:text="删除商品"
+        android:onClick="onDeleteGoods"
+        android:background="@drawable/goods_detail_button_bg"/>
+
+</LinearLayout>

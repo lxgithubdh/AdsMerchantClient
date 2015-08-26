@@ -28,7 +28,8 @@
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="3dp"
+            android:background="@color/white">
             
             <RelativeLayout
                 style="@style/input_item_style">
@@ -115,7 +116,8 @@
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="3dp"
+            android:background="@color/white">
             <RelativeLayout
              style="@style/input_item_style">
             <TextView
@@ -149,7 +151,8 @@
              android:layout_height="wrap_content"
              android:orientation="vertical"
              android:paddingLeft="10dp"
-             android:paddingRight="10dp">
+             android:paddingRight="10dp"
+             android:background="@color/white">
              <RelativeLayout
              style="@style/input_item_style">
             <TextView

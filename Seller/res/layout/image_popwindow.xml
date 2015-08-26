@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white"
+    android:gravity="center">
+    <TextView 
+        android:id="@+id/select_image_by_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/corners_bg"
+        android:clickable="true"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="从相册"/>
+    <TextView 
+        android:id="@+id/select_image_by_capture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/corners_bg"
+        android:clickable="true"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="从相机"/>
+    <TextView 
+        android:id="@+id/select_image_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/corners_bg"
+        android:clickable="true"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="取消"/>
+
+</LinearLayout>

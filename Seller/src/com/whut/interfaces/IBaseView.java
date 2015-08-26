@@ -7,9 +7,9 @@ package com.whut.interfaces;
 public interface IBaseView {
 
 	//获取view信息
-	public Object getInfo();
+	public Object getInfo(int code);
 	
 	
 	//设置view信息
-	public void setInfo(Object obj);
+	public void setInfo(Object obj,int code);
 }

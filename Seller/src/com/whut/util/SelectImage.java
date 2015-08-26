@@ -3,18 +3,26 @@ package com.whut.util;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+import com.whut.seller.R;
+
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.DialogInterface.OnClickListener;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -38,10 +46,14 @@ public class SelectImage {
 	private File imageFile = new File(path);
 	//图片Uri
 	private Uri imageUri = Uri.fromFile(imageFile);
+	//方式选择弹出框
+	private PopupWindow window = null;
+	private View view;
 	
 	
 	public SelectImage(Context context){
 		this.context = context;
+		view = new View(context);
 		if(!imageFile.getParentFile().getParentFile().exists()){
 			imageFile.getParentFile().getParentFile().mkdir();
 		}
@@ -55,28 +67,47 @@ public class SelectImage {
 	 * 选择获取图片方式
 	 */
 	public void selectWay(){
-		String[] items = {"本机","相机"};
-		new AlertDialog.Builder(context).setTitle("选择图片来源")
-				.setItems(items, new OnClickListener() {
-					Intent intent = new Intent();
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						switch(which){
-						case SELECT_FROM_GALLERY:
-							intent.setType("image/*");
-							intent.setAction(Intent.ACTION_GET_CONTENT);
-							((Activity)context).startActivityForResult(intent, SELECT_FROM_GALLERY); //获取图片后返回本页
-							break;
-						case SELECT_FROM_CAPTURE:
-							intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);//输出路径
-							intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-							((Activity)context).startActivityForResult(intent, SELECT_FROM_CAPTURE);
-							break;
-							default:
-								break;
-						}
-					}
-				}).create().show();
+		View popWindowView = ((LayoutInflater)context.getSystemService(
+				Context.LAYOUT_INFLATER_SERVICE)).inflate(
+						R.layout.image_popwindow, null);
+		window = new PopupWindow(popWindowView,
+				LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT,true);
+		window.showAtLocation(view ,Gravity.BOTTOM, 0, 0);
+		window.setTouchable(true);
+		OnClickListener listener = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				switch(v.getId()){
+				case R.id.select_image_by_gallery:
+					intent.setType("image/*");
+					intent.setAction(Intent.ACTION_GET_CONTENT);
+					((Activity)context).startActivityForResult(intent, SELECT_FROM_GALLERY); //获取图片后返回本页
+					withdrawWindow();
+					break;
+				case R.id.select_image_by_capture:
+					intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);//输出路径
+					intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+					((Activity)context).startActivityForResult(intent, SELECT_FROM_CAPTURE);
+					withdrawWindow();
+					break;
+				default:
+					withdrawWindow();
+					break;
+				}
+			}
+		};
+		((TextView)popWindowView.findViewById(R.id.select_image_by_gallery)).setOnClickListener(listener);
+		((TextView)popWindowView.findViewById(R.id.select_image_by_capture)).setOnClickListener(listener);
+		((TextView)popWindowView.findViewById(R.id.select_image_cancel)).setOnClickListener(listener);
+		popWindowView.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				withdrawWindow();
+				return false;
+			}
+		});
 	}
 	
 	
@@ -159,5 +190,14 @@ public class SelectImage {
 		intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);//输出路径
 		intent.putExtra("return-data", false);//取消返回
 		((Activity)context).startActivityForResult(intent, CROP_IMAGE);
+	}
+	
+	
+	//收回弹出框
+	private void withdrawWindow(){
+		if(window!=null&&window.isShowing()){
+			window.dismiss();
+			window = null;
+		}
 	}
 }

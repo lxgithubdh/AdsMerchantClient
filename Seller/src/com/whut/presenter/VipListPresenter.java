@@ -80,6 +80,6 @@ public class VipListPresenter {
 		list.add(model2);
 		list.add(model3);
 		
-		iView.setInfo(list);
+		iView.setInfo(list,0);
 	}
 }

@@ -39,4 +39,12 @@ public class Constants {
 	public static final String APP_ID = "5d08598308b40211c7c596e3d5fc2107";
 	
 	public static String STORE_ID = "1";      //商铺Id
+	
+	
+	//http请求码
+	public static final int REQUEST_UPLOAD_IMAGE = 0;
+	public static final int REQUEST_ADD = 1;
+	public static final int REQUEST_DELETE = 2;
+	public static final int REQUEST_UPDATE = 3;
+	public static final int REQUEST_QUERY = 4;
 }

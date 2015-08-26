@@ -13,7 +13,7 @@ import android.view.View;
  * 关于
  * @author lx
  */
-public class AboutActivity extends Activity {
+public class AboutActivity extends Activity{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

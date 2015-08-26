@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" 
+    android:layout_marginTop="1dp">
 
     <LinearLayout android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
@@ -10,166 +11,196 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:padding="10dp"
-              android:layout_marginBottom="10dp">
+              android:layout_marginBottom="5dp"
+              android:background="@color/white">
         <TextView
                 android:id="@+id/goods_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/gray"
-                android:text="选择商品图片"
-                android:textSize="16sp"/>
+                android:text="商品图片"
+                android:textSize="18sp"/>
 
         <ImageView
                 android:id="@+id/goods_info_image"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:src="@drawable/add_image"
                 android:onClick="selectImage"
                 android:layout_below="@id/goods_tv"
                 android:scaleType="fitXY"/>
     </RelativeLayout>
 
-    <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:padding="10dp">
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginBottom="5dp"
+        android:paddingLeft="5dp">
         <EditText
                 android:id="@+id/goods_info_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@null"
                 android:gravity="top"
                 android:maxLines="4"
                 android:lines="4"
                 android:ems="10"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
+                android:padding="5dp"
                 android:hint="请输入商品描述（必填）"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:inputType="textMultiLine"/>
-        <requestFocus/>
     </LinearLayout>
+        
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:background="@color/white">
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:paddingTop="15dp">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:text="名  称"
-                    android:textSize="16sp"/>
+                    android:text="商品名称："
+                    android:textSize="18sp"/>
             <EditText
                     android:id="@+id/goods_info_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
+                    android:background="@null"
                     android:hint="请输入商品名称（必填）"/>
         </LinearLayout>
-
+		
+        <View 
+            android:layout_marginLeft="90dp"
+            style="@style/dividing_line_style"/>
+        
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:paddingTop="15dp">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:text="类  别"
-                    android:textSize="16sp"/>
+                    android:text="商品类别："
+                    android:textSize="18sp"/>
             <Spinner
                     android:id="@+id/goods_info_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:entries="@array/goods_category"/>
+                    android:textSize="18sp"
+                    android:entries="@array/goods_category"
+                    android:background="@null"/>
         </LinearLayout>
 
+        <View 
+            android:layout_marginLeft="90dp"
+            style="@style/dividing_line_style"/>
+        
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:paddingTop="15dp">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:text="原  价"
-                    android:textSize="16sp"/>
+                    android:text="商品原价："
+                    android:textSize="18sp"/>
             <EditText
                     android:id="@+id/goods_info_original_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:hint="请输入商品原价"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal"
+                    android:background="@null"/>
         </LinearLayout>
 
+        <View 
+            android:layout_marginLeft="90dp"
+            style="@style/dividing_line_style"/>
+        
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:paddingTop="15dp">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:text="现  价"
-                    android:textSize="16sp"/>
+                    android:text="商品现价："
+                    android:textSize="18sp"/>
             <EditText
                     android:id="@+id/goods_info_current_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:hint="请输入商品现价"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal"
+                    android:background="@null"/>
         </LinearLayout>
 
+        <View 
+            android:layout_marginLeft="90dp"
+            style="@style/dividing_line_style"/>
+        
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:paddingTop="15dp">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:text="库  存"
-                    android:textSize="16sp"/>
+                    android:text="商品库存："
+                    android:textSize="18sp"/>
             <EditText
                     android:id="@+id/goods_info_inventory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:hint="请输入商品库存（必填）"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:background="@null"/>
         </LinearLayout>
 
+        <View 
+            android:layout_marginLeft="90dp"
+            style="@style/dividing_line_style"/>
     </LinearLayout>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:padding="10dp"
+            android:background="@color/white"
             android:orientation="horizontal">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:paddingTop="5dp"
-                android:text="随时退款"
-                android:textSize="16sp"/>
+                android:text="随时退款："
+                android:textSize="18sp"/>
         <RadioGroup
                 android:id="@+id/goods_info_is_return"
                 android:layout_width="match_parent"
@@ -183,7 +214,7 @@
                     android:layout_height="30dp"
                     android:layout_weight="0.5"
                     android:text="支  持"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:checked="true"/>
             <RadioButton
                     android:id="@+id/goods_info_can_not_return"
@@ -191,7 +222,7 @@
                     android:layout_height="30dp"
                     android:layout_weight="0.5"
                     android:text="不支持"
-                    android:textSize="16sp"/>
+                    android:textSize="18sp"/>
         </RadioGroup>
     </LinearLayout>
 
@@ -199,15 +230,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:padding="10dp"
+            android:background="@color/white">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="提示信息"
-                android:textSize="16sp"/>
+                android:text="提示信息："
+                android:textSize="18sp"/>
         <EditText
                 android:id="@+id/goods_info_notice"
                 android:layout_width="match_parent"
@@ -219,7 +249,7 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:hint="请输入提示信息"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:inputType="textMultiLine"/>
     </LinearLayout>
 
@@ -229,13 +259,14 @@
             android:orientation="vertical"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:paddingRight="10dp"
+            android:background="@color/white">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="购买详情"
-                android:textSize="16sp"/>
+                android:text="购买详情："
+                android:textSize="18sp"/>
         <EditText
                 android:id="@+id/goods_info_buy_detail"
                 android:layout_width="match_parent"
@@ -247,7 +278,7 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:hint="请输入购买详情"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:inputType="textMultiLine"/>
     </LinearLayout>
     </LinearLayout>

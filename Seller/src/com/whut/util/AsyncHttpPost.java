@@ -17,11 +17,13 @@ public class AsyncHttpPost extends AsyncTask<String, Void, String> {
 	private String url;
 	private List<NameValuePair> values;
 	private IBasePresenter presenter;
+	private int requestCode;
 
-	public AsyncHttpPost(String url,List<NameValuePair> vlaues,IBasePresenter presenter){
+	public AsyncHttpPost(IBasePresenter presenter,String url,List<NameValuePair> vlaues,int requestCode){
 		this.url = url;
 		this.values = vlaues;
 		this.presenter = presenter;
+		this.requestCode = requestCode;
 	}
 	
 	@Override
@@ -38,7 +40,7 @@ public class AsyncHttpPost extends AsyncTask<String, Void, String> {
 	@Override
 	protected void onPostExecute(String res){
 		super.onPostExecute(res);
-		presenter.showData(res);
+		presenter.response(res,requestCode);
 	}
 
 }

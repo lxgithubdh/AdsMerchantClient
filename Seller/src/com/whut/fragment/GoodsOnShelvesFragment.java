@@ -1,11 +1,6 @@
 package com.whut.fragment;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
 import com.whut.activity.GoodsDetailActivity;
 import com.whut.config.Constants;
 import com.whut.data.model.GoodsModel;
@@ -44,10 +39,7 @@ public class GoodsOnShelvesFragment extends Fragment implements IBaseView{
 		View view = inflater.inflate(R.layout.goods_list_view, container,false);
 		list = (ListView)view.findViewById(R.id.goods_list_view);
 		presenter = new GoodsListPresenter(this);
-		String url = Constants.GET_GOODS_LIST;
-		List<NameValuePair> params = new ArrayList<NameValuePair>();
-		params.add(new BasicNameValuePair("sId", Constants.STORE_ID));        //添加参数
-		presenter.request(url, params);
+		presenter.request(Constants.REQUEST_QUERY);
 		return view;
 	}
 
@@ -62,12 +54,12 @@ public class GoodsOnShelvesFragment extends Fragment implements IBaseView{
 	
 	
 	@Override
-	public Object getInfo() {
+	public Object getInfo(int code) {
 		return null;
 	}
 
 	@Override
-	public void setInfo(Object obj) {
+	public void setInfo(Object obj,int code) {
 		String result = (String)obj;
 		GoodsListUtil util = new GoodsListUtil(context, result);
 		BaseAdapter adapter = util.getAdapter();

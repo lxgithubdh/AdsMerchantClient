@@ -71,7 +71,7 @@ public class MainActivity extends Activity{
 			startActivity(intent);
 			break;
 		case  R.id.goto_ads_manage:             //广告管理
-			intent = new Intent(context,AdsManagerActivity.class);
+			intent = new Intent(context,AboutActivity.class);
 			startActivity(intent);
 			break;
 		default:

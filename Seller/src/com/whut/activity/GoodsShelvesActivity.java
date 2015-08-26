@@ -1,20 +1,15 @@
 ﻿package com.whut.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
 import com.pgyersdk.Pgy;
+import com.whut.presenter.GoodsShelvesPresenter;
 import com.whut.seller.R;
-import com.whut.util.AsyncPost;
-import com.whut.util.AsyncUploadFile;
 import com.whut.util.ImageUtil;
 import com.whut.util.JsonUtils;
 import com.whut.util.SelectImage;
 import com.whut.util.BackAction;
 import com.whut.config.Constants;
+import com.whut.data.model.GoodsModel;
+import com.whut.interfaces.IBaseView;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -22,8 +17,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -39,16 +32,14 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
  * @author lx
  *商品上架
  */
-public class GoodsShelvesActivity extends Activity {
+public class GoodsShelvesActivity extends Activity implements IBaseView{
 
 	//商品图片
 	private ImageView image;
 	//商品图片链接
 	private String imageUrl;
 	//是否支持随时退款
-	private String isReturn="true";
-	//处理消息循环
-	private Handler handler;
+	private boolean isReturn=true;
 	//进度条
 	private ProgressDialog dialog;
 	//是否可以提交
@@ -59,9 +50,10 @@ public class GoodsShelvesActivity extends Activity {
 	private int goodsCategory = 0;
 	//商品类别列表
 	private Spinner category;
-	//添加商品地址
-	private String url = Constants.ADD_GOODS_PATH;
-	private List<NameValuePair> params = new ArrayList<NameValuePair>() ;  //参数列表
+	//商品添加管理器
+	private GoodsShelvesPresenter presenter;
+	//商品信息
+	private GoodsModel model;
 	private Context context;
 	
 	
@@ -74,6 +66,7 @@ public class GoodsShelvesActivity extends Activity {
 		
 		context = this;
 		Pgy.init(context, Constants.APP_ID);
+		presenter = new GoodsShelvesPresenter(this);
 		image = (ImageView)findViewById(R.id.goods_info_image);
 		category = (Spinner)findViewById(R.id.goods_info_category);
         dialog = new ProgressDialog(context);
@@ -84,9 +77,9 @@ public class GoodsShelvesActivity extends Activity {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				if(checkedId==R.id.goods_info_can_return){
-					isReturn = "true";
+					isReturn = true;
 				}else{
-					isReturn = "false";
+					isReturn = false;
 				}
 			}
 		});
@@ -100,31 +93,8 @@ public class GoodsShelvesActivity extends Activity {
 			}
 
 			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void onNothingSelected(AdapterView<?> parent) {}
 		});
-		 
-		handler = new Handler(){
-			@Override
-			public void handleMessage(Message msg){
-				String result = msg.getData().getString("res");
-				switch(msg.what){
-				case 0:                      //商品上传
-					onComplete(result);
-					break;
-				case 1:                       //图片上传
-					imageUrl = JsonUtils.parseUploadImage(result, dialog, context);
-					if(imageUrl!=null){
-						submitGoods();
-					}
-					break;
-				default :
-					break;
-				}
-			}
-		};
 	}
 	
 	
@@ -152,13 +122,11 @@ public class GoodsShelvesActivity extends Activity {
 	 * @param v(Button)
 	 */
 	public void onSubmit(View v){
-		Bitmap bitmap  = ImageUtil.getBitmap(image);
-        checkMsg();
+        model = checkMsg();
         if(canSubmit){
         	dialog.show();
             dialog.setCancelable(false);
-            AsyncUploadFile uploadImage= new AsyncUploadFile(bitmap,handler);
-    		uploadImage.execute();
+            presenter.request(Constants.REQUEST_UPLOAD_IMAGE);
 		}else{
 			Toast.makeText(context, "请完善重要信息！", Toast.LENGTH_LONG).show();
 		}
@@ -180,49 +148,48 @@ public class GoodsShelvesActivity extends Activity {
 	/**
 	 * 检查输入信息
 	 */
-	private void checkMsg(){
+	private GoodsModel checkMsg(){
 		String temp = null;
 		canSubmit = true;
-		params.clear();
-		params.add(new BasicNameValuePair("sId", Constants.STORE_ID));
+		GoodsModel model = new GoodsModel();
 		temp =((EditText)this.findViewById(R.id.goods_info_title)).getText().toString();
 		if(temp.equals("")){
 			canSubmit = false;
 		}
-		params.add(new BasicNameValuePair("title", temp));
+		model.setTitle(temp);
 		temp = ((EditText)this.findViewById(R.id.goods_info_desc)).getText().toString();
 		if(temp.equals("")){
 			canSubmit = false;
 		}
-		params.add(new BasicNameValuePair("desc", temp));
+		model.setDesc(temp);
 		temp = ((EditText)this.findViewById(R.id.goods_info_inventory)).getText().toString();
 		if(temp.equals("")){
 			canSubmit = false;
 		}
-		params.add(new BasicNameValuePair("inventory", temp));
+		model.setInventory(Integer.valueOf(temp));
 		temp =( (EditText)this.findViewById(R.id.goods_info_original_price)).getText().toString();
 		if(temp.equals("")){
 			temp = "0.0";
 		}
-		params.add(new BasicNameValuePair("originalPrice", temp));
+		model.setOriginalPrice(Double.valueOf(temp));
 		temp = ((EditText)this.findViewById(R.id.goods_info_current_price)).getText().toString();
 		if(temp.equals("")){
 			temp = "0.0";
 		}
-		params.add(new BasicNameValuePair("currentPrice", temp));
+		model.setCurrentPrice(Double.valueOf(temp));
 		temp = ((EditText)this.findViewById(R.id.goods_info_notice)).getText().toString();
 		if(temp.equals("")){
 			temp = "无";
 		}
-		params.add(new BasicNameValuePair("notice", temp));
+		model.setNotice(temp);
 		temp = ((EditText)this.findViewById(R.id.goods_info_buy_detail)).getText().toString();
 		if(temp.equals("")){
 			temp = "无";
 		}
-		params.add(new BasicNameValuePair("buyDetail", temp));
-		params.add(new BasicNameValuePair("category", String.valueOf(goodsCategory)));
-		params.add(new BasicNameValuePair("isReturnAnytime", isReturn));
-	    params.add(new BasicNameValuePair("imageUrl",imageUrl));
+		model.setBuyDetail(temp);
+		model.setCatgory(goodsCategory);
+		model.setReturnAnytime(isReturn);
+		return model;
 	}
 	
 	
@@ -230,8 +197,8 @@ public class GoodsShelvesActivity extends Activity {
 	 * 提交数据
 	 */
 	private void submitGoods(){
-		AsyncPost asyncHttpPost = new AsyncPost(url, params,handler,0);     //发起Post请求
-		asyncHttpPost.execute();
+		model.setImageUrl(imageUrl);
+		presenter.request(Constants.REQUEST_ADD);
 	}
 	
 	
@@ -248,5 +215,33 @@ public class GoodsShelvesActivity extends Activity {
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
+	}
+
+
+	@Override
+	public Object getInfo(int code) {
+		if(code==Constants.REQUEST_UPLOAD_IMAGE){
+			return ImageUtil.getBitmap(image);
+		}else{
+			return model;
+		}
+	}
+
+
+	@Override
+	public void setInfo(Object obj,int code) {
+		switch(code){
+		case  Constants.REQUEST_UPLOAD_IMAGE:
+			imageUrl = JsonUtils.parseUploadImage((String)obj, dialog, context);
+			if(imageUrl!=null){
+				submitGoods();
+			}
+			break;
+		case Constants.REQUEST_ADD:
+			onComplete((String)obj);
+			break;
+		default:
+			break;
+		}
 	}
 }

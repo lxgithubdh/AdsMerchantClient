@@ -49,12 +49,12 @@ public class VipRecordActivity extends Activity implements IBaseView{
 	}
 	
 	@Override
-	public Object getInfo() {
+	public Object getInfo(int code) {
 		return null;
 	}
 
 	@Override
-	public void setInfo(Object obj) {
+	public void setInfo(Object obj,int code) {
 		ArrayList<VipRecordModel> records = (ArrayList<VipRecordModel>)obj;
 		for(int i=0;i<records.size();++i){
 			layout.addView(getView(records.get(i)));

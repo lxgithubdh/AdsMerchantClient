@@ -1,9 +1,12 @@
 package com.whut.presenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 
+import com.whut.config.Constants;
 import com.whut.interfaces.IBasePresenter;
 import com.whut.interfaces.IBaseView;
 import com.whut.util.AsyncHttpPost;
@@ -24,19 +27,17 @@ public class GoodsListPresenter implements IBasePresenter{
 	
 	
 	@Override
-	public void saveData(Object data) {
-		
-	}
-
-	@Override
-	public void showData(Object data) {
-		view.setInfo(data);
+	public void response(Object data,int respondCode) {
+		view.setInfo(data,respondCode);
 	}
 
 
 	@Override
-	public void request(String url, List<NameValuePair> pairs, String... params) {
-		new AsyncHttpPost(url, pairs, this).execute();
+	public void request(int requestCode) {
+		String url = Constants.GET_GOODS_LIST;
+		List<NameValuePair> list = new ArrayList<NameValuePair>();
+		list.add(new BasicNameValuePair("sId", Constants.STORE_ID));        //添加参数
+		new AsyncHttpPost(this,url, list, requestCode).execute();
 	}
 
 }
