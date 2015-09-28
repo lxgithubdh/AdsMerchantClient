@@ -5,12 +5,11 @@
     <include layout="@layout/back_icon"/>
 
     <TextView
-        android:id="@+id/about_title"
+        android:id="@+id/activity_title_complete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="商品详情"
-        style="@style/title_text_style" />
+        style="@style/title_text_style"/>
     
     <TextView
         android:layout_width="wrap_content"

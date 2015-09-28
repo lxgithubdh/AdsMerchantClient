@@ -1,8 +1,9 @@
 package com.whut.fragment;
 
 import java.util.ArrayList;
+
 import com.whut.activity.GoodsDetailActivity;
-import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.data.model.GoodsModel;
 import com.whut.interfaces.IBaseView;
 import com.whut.presenter.GoodsListPresenter;
@@ -38,7 +39,7 @@ public class GoodsOffShelvesFragment extends Fragment implements IBaseView{
 		View view = inflater.inflate(R.layout.goods_list_view, container,false);
 		list = (ListView)view.findViewById(R.id.goods_list_view);
 		presenter = new GoodsListPresenter(this);
-		presenter.request(Constants.REQUEST_QUERY);
+		presenter.request(RequestParam.REQUEST_QUERY);
 		return view;
 	}
 

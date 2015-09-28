@@ -10,7 +10,7 @@ import java.util.Date;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 
-import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.interfaces.IBasePresenter;
 
 /**
@@ -67,7 +67,7 @@ private String uploadFile(Bitmap image){
 	String result = null;
 	HttpURLConnection con = null;
 	try{
-		URL url = new URL(Constants.UPLOAD_PATH_IMAGE);
+		URL url = new URL(RequestParam.UPLOAD_PATH_IMAGE);
 		con = (HttpURLConnection)url.openConnection();                           //建立连接
 		con.setDoInput(true);
 		con.setDoOutput(true);

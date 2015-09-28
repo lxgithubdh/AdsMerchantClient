@@ -9,6 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import com.alibaba.fastjson.JSONObject;
 import com.pgyersdk.Pgy;
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.seller.R;
 import com.whut.util.AsyncPost;
 import com.whut.util.AsyncUploadFile;
@@ -29,6 +30,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -68,6 +70,7 @@ public class StoreManageActivity extends Activity {
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_store_manage);
 		
+		((TextView)findViewById(R.id.activity_title_complete)).setText("店铺管理");
 		//init();
 		//getInitData();
 		//setInitData(new JSONObject());
@@ -254,7 +257,7 @@ public class StoreManageActivity extends Activity {
 	 * 提交数据
 	 */
 	private void submitStoreMsg(){
-		String url = Constants.UPDATE_STORE_PATH;                                                           //提交更新信息网址
+		String url = RequestParam.UPDATE_STORE_PATH;                                                           //提交更新信息网址
 		AsyncPost asyncHttpPost = new AsyncPost(url, params,handler,0);     //发起Post请求
 		asyncHttpPost.execute();
 	}
@@ -264,7 +267,7 @@ public class StoreManageActivity extends Activity {
      * 获取初始化信息
      */
     private void getInitData(){
-    	String url = Constants.GET_STORE_PATH;
+    	String url = RequestParam.GET_STORE_PATH;
     	params.clear();
     	params.add(new BasicNameValuePair("sId", Constants.STORE_ID));
     	//new AsyncHttpPost(url,params,handler,2).execute();

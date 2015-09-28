@@ -1,13 +1,19 @@
 package com.whut.activity;
 
+import com.whut.config.Constants;
 import com.whut.seller.R;
 import com.whut.util.BadgeView;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -26,6 +32,8 @@ public class MainActivity extends Activity{
 	private BadgeView badge;
 	//vip信息
 	private LinearLayout vipInfo;
+	//vip进店信息接收器
+	private BroadcastReceiver receiver;
 	
 	
 	protected void onCreate(Bundle bundle){
@@ -36,9 +44,35 @@ public class MainActivity extends Activity{
 		vipInfo = (LinearLayout)findViewById(R.id.vip_info);
 		vipInfo.setVisibility(View.GONE);
 		badge = new BadgeView(context, image);
+		if(Constants.VIP_NUM!=0){
+			badge.setText(String.valueOf(Constants.VIP_NUM));
+			badge.show();
+		}
 	}
 
 	
+	@Override
+	protected void onStart() {
+		receiver = new BroadcastReceiver(){
+			@Override
+			public void onReceive(Context context, Intent intent){
+				popupVipNotice();
+			}
+		};
+		IntentFilter filter = new IntentFilter();
+		filter.addAction(Constants.VIP_BROADCAST);
+		registerReceiver(receiver, filter);
+		super.onStart();
+	}
+
+
+	@Override
+	protected void onDestroy() {
+		unregisterReceiver(receiver);
+		super.onDestroy();
+	}
+
+
 	public void onClick(View v) {
 		Intent intent = null;
 		switch(v.getId()){
@@ -71,7 +105,7 @@ public class MainActivity extends Activity{
 			startActivity(intent);
 			break;
 		case  R.id.goto_ads_manage:             //广告管理
-			intent = new Intent(context,AboutActivity.class);
+			intent = new Intent(context,AdsManagerActivity.class);
 			startActivity(intent);
 			break;
 		default:
@@ -84,9 +118,26 @@ public class MainActivity extends Activity{
 	 * 显示VIP信息详情
 	 */
 	public void showDetail(View v){
-		/*badge.hide();
-		int number = new Random().nextInt(100);
-		badge.setText(String.valueOf(number));
+		Constants.VIP_NUM = 0;
+		badge.hide();
+		startActivity(new Intent(context,VipRecordActivity.class));
+	}
+	
+	
+	/**
+	 * 显示我的信息
+	 */
+	public void showInfo(View v){
+		startActivity(new Intent(context,SettingActivity.class));
+	}
+	
+	
+	/**
+	 * 弹出vip到店提示信息
+	 */
+	private void popupVipNotice(){
+		badge.hide();
+		badge.setText(String.valueOf(Constants.VIP_NUM));
 		badge.show();
 		Animation popup = AnimationUtils.loadAnimation(context, R.anim.vip_info_popup);
 		vipInfo.setVisibility(View.VISIBLE);
@@ -103,7 +154,7 @@ public class MainActivity extends Activity{
 			public void onAnimationEnd(Animation animation) {
 				Animation withdraw = AnimationUtils.loadAnimation(context, R.anim.vip_info_withdraw);
 				try {
-					new Thread().sleep(1000);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {}
 				vipInfo.startAnimation(withdraw);
 				withdraw.setAnimationListener(new AnimationListener() {
@@ -120,15 +171,6 @@ public class MainActivity extends Activity{
 					}
 				});
 			}
-		});*/
-		startActivity(new Intent(context,VipRecordActivity.class));
-	}
-	
-	
-	/**
-	 * 显示我的信息
-	 */
-	public void showInfo(View v){
-		startActivity(new Intent(context,SettingActivity.class));
+		});
 	}
 }

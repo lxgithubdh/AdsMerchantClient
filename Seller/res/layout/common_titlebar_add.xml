@@ -5,19 +5,18 @@
     <include layout="@layout/back_icon"/>
 
     <TextView
+        android:id="@+id/activity_title_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="门户图片"
-        style="@style/title_text_style" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/title_text_style"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:onClick="onSubmit"
-        android:text="完成"
-        style="@style/title_button_style"/>
+        android:onClick="onAdd"
+        android:src="@drawable/add_hollow" />
 
 </RelativeLayout>

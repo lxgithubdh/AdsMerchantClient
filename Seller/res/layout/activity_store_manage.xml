@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <include layout="@layout/store_manage_titlebar"/>
+    <include layout="@layout/common_titlebar_complete"/>
 
     <ScrollView 
         android:layout_width="match_parent"

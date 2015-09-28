@@ -7,6 +7,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.interfaces.IBasePresenter;
 import com.whut.interfaces.IBaseView;
 import com.whut.util.AsyncHttpPost;
@@ -27,14 +28,14 @@ public class GoodsListPresenter implements IBasePresenter{
 	
 	
 	@Override
-	public void response(Object data,int respondCode) {
+	public void response(String data,int respondCode) {
 		view.setInfo(data,respondCode);
 	}
 
 
 	@Override
 	public void request(int requestCode) {
-		String url = Constants.GET_GOODS_LIST;
+		String url = RequestParam.GET_GOODS_LIST;
 		List<NameValuePair> list = new ArrayList<NameValuePair>();
 		list.add(new BasicNameValuePair("sId", Constants.STORE_ID));        //添加参数
 		new AsyncHttpPost(this,url, list, requestCode).execute();

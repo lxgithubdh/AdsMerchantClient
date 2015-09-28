@@ -8,7 +8,7 @@
           android:layout_height="wrap_content"
           android:orientation="vertical">
 
-	<include layout="@layout/goods_detail_titlebar"/>	  
+	<include layout="@layout/common_titlebar_complete"/>	  
 	    
 	<include layout="@layout/goods_info"/>
 	

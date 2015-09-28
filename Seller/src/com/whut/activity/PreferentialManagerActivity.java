@@ -11,6 +11,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.pgyersdk.Pgy;
 import com.pgyersdk.crash.PgyCrashManager;
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.data.model.CouponModel;
 import com.whut.imageloader.ImageLoader;
 import com.whut.seller.R;
@@ -62,7 +63,7 @@ public class PreferentialManagerActivity extends Activity{
 			 * StrictMode.ThreadPolicy.Builder() .permitAll().build();
 			 * StrictMode.setThreadPolicy(policy);
 			 */
-			
+			((TextView)findViewById(R.id.activity_title_add)).setText("优惠券管理");
 			initData();
 			listview=(ListView) findViewById(R.id.common_list_view);
 			listAdapter = new MainListAdapter();
@@ -85,7 +86,7 @@ public class PreferentialManagerActivity extends Activity{
 		/**
 		 * 添加商品
 		 */
-		public void addCoupon(View v){
+		public void onAdd(View v){
 			Intent intent = new Intent(context,PreferentialAddActivity.class);
 			startActivity(intent);
 		}
@@ -134,7 +135,7 @@ public class PreferentialManagerActivity extends Activity{
 			@Override
 			protected String doInBackground(String... params) {
 				String result = "";
-				String url = Constants.GET_COUPON_LIST;
+				String url = RequestParam.GET_COUPON_LIST;
 				List<NameValuePair> list = new ArrayList<NameValuePair>();
 				list.add(new BasicNameValuePair("sId", params[0]));        //添加参数
 				// http://202.114.175.253:80/ECheckServer/login/load.do?username=zym&password=12345

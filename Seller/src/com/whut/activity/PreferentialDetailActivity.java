@@ -9,6 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import com.pgyersdk.Pgy;
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.data.model.CouponModel;
 import com.whut.imageloader.ImageLoader;
 import com.whut.seller.R;
@@ -33,6 +34,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -86,6 +88,7 @@ public class PreferentialDetailActivity extends Activity{
 			super.onCreate(bundle);
 			setContentView(R.layout.activity_preferential_detail);
 			
+			((TextView)findViewById(R.id.activity_title_complete)).setText("优惠券详情");
 			context = this;
 			Pgy.init(context, Constants.APP_ID);
 	        dialog = new ProgressDialog(context);
@@ -264,7 +267,7 @@ public class PreferentialDetailActivity extends Activity{
 		 * 提交数据
 		 */
 		private void submitCoupon(){
-			AsyncPost asyncHttpPost = new AsyncPost(Constants.UPDATE_COUPON_PATH, params,handler,0);     //发起Post请求
+			AsyncPost asyncHttpPost = new AsyncPost(RequestParam.UPDATE_COUPON_PATH, params,handler,0);     //发起Post请求
 			asyncHttpPost.execute();
 		}
 		

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/user_info_titilebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:orientation="vertical" >
+
+        <RelativeLayout 
+            android:id="@+id/user_info_pic"
+            style="@style/input_item_style" >
+
+            <TextView
+                style="@style/info_attr_style"
+                android:layout_centerVertical="true"
+                android:text="头像" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="38dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="25dp"
+                android:src="@drawable/portrait" />
+
+            <ImageView
+                style="@style/more_icon_style"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <View style="@style/dividing_line_style_thin" />
+
+        <RelativeLayout 
+            android:id="@+id/user_info_name"
+            style="@style/input_item_style" >
+
+            <TextView
+                style="@style/info_attr_style"
+                android:text="昵称" />
+
+            <TextView
+                android:id="@+id/store_manage_name"
+                style="@style/attr_show_style"
+                android:text="妙手回春" />
+
+            <ImageView style="@style/more_icon_style" />
+        </RelativeLayout>
+
+        <View style="@style/dividing_line_style_thin" />
+
+        <RelativeLayout 
+            android:id="@+id/user_info_sex"
+            style="@style/input_item_style" >
+
+            <TextView
+                style="@style/info_attr_style"
+                android:text="性别" />
+
+            <TextView
+                android:id="@+id/store_manage_qq"
+                style="@style/attr_show_style"
+                android:text="男" />
+
+            <ImageView style="@style/more_icon_style" />
+        </RelativeLayout>
+
+        <View style="@style/dividing_line_style_thick" />
+
+        <RelativeLayout 
+            android:id="@+id/user_info_address"
+            style="@style/input_item_style" >
+
+            <TextView
+                style="@style/info_attr_style"
+                android:text="地址管理" />
+
+            <ImageView style="@style/more_icon_style" />
+        </RelativeLayout>
+
+        <View style="@style/dividing_line_style_thick" />
+
+        <RelativeLayout 
+            android:id="@+id/user_info_grade"
+            style="@style/input_item_style" >
+
+            <TextView
+                style="@style/info_attr_style"
+                android:text="会员等级" />
+
+            <ImageView style="@style/more_icon_style" />
+        </RelativeLayout>
+
+        <View style="@style/dividing_line_style_thin" />
+
+        <RelativeLayout 
+            android:id="@+id/user_info_account"
+            style="@style/input_item_style" >
+
+            <TextView
+                style="@style/info_attr_style"
+                android:text="账户安全" />
+
+            <TextView
+                android:id="@+id/store_manage_qq"
+                style="@style/attr_show_style"
+                android:text="绑定手机号" />
+
+            <ImageView style="@style/more_icon_style" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray"
+        android:orientation="horizontal"
+        android:padding="20dp" >
+
+        <Button
+            android:id="@+id/btn_user_logout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_logout"
+            android:text="退出登录"
+            android:textSize="16sp"
+            android:textColor="@color/main_color"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,6 +1,8 @@
 package com.whut.activity;
 
+import com.whut.component.service.VipNoticeService;
 import com.whut.seller.R;
+import com.whut.util.SharedPreferenceHelper;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -23,6 +25,8 @@ public class WelcomActivity extends Activity {
 	protected void onCreate(Bundle bundle){
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_welcom);
+		
+		
 		new Handler().postDelayed(new Runnable() {
 			
 			@Override
@@ -45,16 +49,15 @@ public class WelcomActivity extends Activity {
 	 * @return  
 	 */
 	private boolean checkFirstLaunche(){
-		SharedPreferences preferences = this.getSharedPreferences("config", Activity.MODE_PRIVATE);
-		boolean isFirst = preferences.getBoolean("isFirst", true);
-		String oldVersion = preferences.getString("version", "0.0.0");
+		SharedPreferences preferences = this.getSharedPreferences("data", Activity.MODE_PRIVATE);
+		SharedPreferenceHelper.setSharedPreferences(preferences);
+		boolean isFirst = Boolean.valueOf(SharedPreferenceHelper.getValue("isFirst","true"));
+		String oldVersion = SharedPreferenceHelper.getValue("version", "0.0.0");
 		String newVersion = getVersion();
 		boolean result = isFirst||!newVersion.equals(oldVersion);
 		if(result){
-			Editor editor = preferences.edit();
-			editor.putBoolean("isFirst", false);
-			editor.putString("version", newVersion);
-			editor.commit();
+			SharedPreferenceHelper.setValue("isFirst", "false");
+			SharedPreferenceHelper.setValue("version", newVersion);
 		}
 		return result;
 	}

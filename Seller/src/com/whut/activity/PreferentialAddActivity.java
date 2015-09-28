@@ -9,6 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import com.pgyersdk.Pgy;
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.seller.R;
 import com.whut.util.AsyncPost;
 import com.whut.util.AsyncUploadFile;
@@ -35,6 +36,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -79,6 +81,7 @@ public class PreferentialAddActivity extends Activity {
 			super.onCreate(bundle);
 			setContentView(R.layout.activity_preferential_add);
 			
+			((TextView)findViewById(R.id.activity_title_complete)).setText("添加优惠券");
 			context = this;
 			Pgy.init(context, Constants.APP_ID);
 			image = (ImageView)findViewById(R.id.preferential_info_image);
@@ -230,7 +233,7 @@ public class PreferentialAddActivity extends Activity {
 		 * 提交数据
 		 */
 		private void submitCoupon(){
-			AsyncPost asyncHttpPost = new AsyncPost(Constants.ADD_COUPON_PATH, params,handler,0);     //发起Post请求
+			AsyncPost asyncHttpPost = new AsyncPost(RequestParam.ADD_COUPON_PATH, params,handler,0);     //发起Post请求
 			asyncHttpPost.execute();
 		}
 		

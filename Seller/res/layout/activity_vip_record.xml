@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <include layout="@layout/vip_record_titilebar"/>
+    <include layout="@layout/common_titlebar"/>
     
     <RelativeLayout 
         android:layout_width="match_parent"

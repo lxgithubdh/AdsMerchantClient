@@ -2,14 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/title_bg_style" >
 
-   <include layout="@layout/back_icon"/>
+    <include layout="@layout/back_icon"/>
 
     <TextView
-        android:id="@+id/channal_business_detail_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="普天管理"
+        android:text="我的店铺"
         style="@style/title_text_style" />
-
 </RelativeLayout>

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -35,6 +36,7 @@ public class PortalImageActivity extends Activity {
 	protected void onCreate(Bundle bundle){
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_portal_image);
+		((TextView)findViewById(R.id.activity_title_complete)).setText("门户图片");
 		ImageView image = (ImageView)findViewById(R.id.portal_image);
 		context = PortalImageActivity.this;
 		manage = new PortalImageManage(image,context);          //实例化管理类

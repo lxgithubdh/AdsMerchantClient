@@ -9,6 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import com.alibaba.fastjson.JSONObject;
 import com.whut.activity.PortalImageActivity;
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.imageloader.ImageLoader;
 import com.whut.seller.R;
 import com.whut.util.AsyncPost;
@@ -60,7 +61,7 @@ public class PortalImageManage {
 				parseGetImage(res);
 			}
 		};
-		String url = Constants.GET_PORTAL_IMAGE;
+		String url = RequestParam.GET_PORTAL_IMAGE;
     	param.clear();                                                                                             //清空参数列表
     	param.add(new BasicNameValuePair("sId", Constants.STORE_ID));//添加参数
     	//new AsyncHttpPost(url,param,handler,2).execute();                             //发送请求
@@ -116,7 +117,7 @@ public class PortalImageManage {
 	 * 更新上传门户页面
 	 */
 	private void updatePortalImage(Handler handler){
-		String url = Constants.UPDATE_PORTAL_IMAGE;                           //提交更新信息网址
+		String url = RequestParam.UPDATE_PORTAL_IMAGE;                           //提交更新信息网址
 		new AsyncPost(url, param,handler,0).execute();                              //发送post请求
 	}
 	

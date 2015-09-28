@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 
 /**
  * 异步上传图片
@@ -72,7 +72,7 @@ private String uploadFile(Bitmap image){
 	String result = null;
 	HttpURLConnection con = null;
 	try{
-		URL url = new URL(Constants.UPLOAD_PATH_IMAGE);
+		URL url = new URL(RequestParam.UPLOAD_PATH_IMAGE);
 		con = (HttpURLConnection)url.openConnection();                           //建立连接
 		con.setDoInput(true);
 		con.setDoOutput(true);

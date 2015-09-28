@@ -8,6 +8,7 @@ import com.whut.util.JsonUtils;
 import com.whut.util.SelectImage;
 import com.whut.util.BackAction;
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.data.model.GoodsModel;
 import com.whut.imageloader.ImageLoader;
 import com.whut.interfaces.IBaseView;
@@ -27,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -77,6 +79,7 @@ public class GoodsDetailActivity extends Activity implements IBaseView{
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_goods_detail);
 		
+		((TextView)findViewById(R.id.activity_title_complete)).setText("商品详情");
 		context = this;
 		Pgy.init(context, Constants.APP_ID);
 		presenter = new GoodsDetailPresenter(this);
@@ -172,10 +175,10 @@ public class GoodsDetailActivity extends Activity implements IBaseView{
         	dialog.show();
         	dialog.setCancelable(false);
         	if(changeImage){
-    			presenter.request(Constants.REQUEST_UPLOAD_IMAGE);
+    			presenter.request(RequestParam.REQUEST_UPLOAD_IMAGE);
     		}else{
     			model.setImageUrl(imageUrl);
-    			presenter.request(Constants.REQUEST_UPDATE);
+    			presenter.request(RequestParam.REQUEST_UPDATE);
     		}
 		}else{
 			Toast.makeText(context, "请完善重要信息！", Toast.LENGTH_LONG).show();
@@ -263,7 +266,7 @@ public class GoodsDetailActivity extends Activity implements IBaseView{
 	
 	@Override
 	public Object getInfo(int code) {
-		if(code==Constants.REQUEST_UPLOAD_IMAGE){
+		if(code==RequestParam.REQUEST_UPLOAD_IMAGE){
 			return ImageUtil.getBitmap(image);
 		}else{
 			return model;
@@ -274,14 +277,14 @@ public class GoodsDetailActivity extends Activity implements IBaseView{
 	@Override
 	public void setInfo(Object obj,int code) {
 		switch(code){
-		case  Constants.REQUEST_UPLOAD_IMAGE:
+		case  RequestParam.REQUEST_UPLOAD_IMAGE:
 			imageUrl = JsonUtils.parseUploadImage((String)obj, dialog, context);
 			if(imageUrl!=null){
 				model.setImageUrl(imageUrl);
-				presenter.request(Constants.REQUEST_UPDATE);
+				presenter.request(RequestParam.REQUEST_UPDATE);
 			}
 			break;
-		case Constants.REQUEST_UPDATE:
+		case RequestParam.REQUEST_UPDATE:
 			onComplete((String)obj);
 			break;
 		default:

@@ -26,7 +26,8 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
                 android:paddingTop="30dp"
-                android:paddingBottom="20dp">
+                android:paddingBottom="20dp"
+                android:onClick="getUserInfo">
                 <com.whut.util.CircleImageView
 					android:id="@+id/user_portrait"
                     android:layout_width="80dp"

@@ -12,17 +12,20 @@ import com.whut.util.BackAction;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 /**
  * vip进店记录界面
@@ -36,12 +39,15 @@ public class VipRecordActivity extends Activity implements IBaseView{
 	private VipListPresenter presenter;
 	//布局管理
 	private LayoutInflater inflater;
+	//listview
+	private ListView vipListDate;
 	
 	
 	protected void onCreate(Bundle bundle){
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_vip_record);
 		
+		((TextView)findViewById(R.id.activity_title)).setText("进店记录");
 		layout = (LinearLayout)findViewById(R.id.vip_list);
 		inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		presenter = new VipListPresenter(this);
@@ -69,11 +75,24 @@ public class VipRecordActivity extends Activity implements IBaseView{
 	private View getView(VipRecordModel model){
 		View view = inflater.inflate(R.layout.vip_list_item_date, null);
 		TextView enterDate = (TextView)view.findViewById(R.id.vip_enter_date);
-		ListView vipListDate = (ListView)view.findViewById(R.id.vip_list_date);
+		vipListDate = (ListView)view.findViewById(R.id.vip_list_date);
 		enterDate.setText(model.getRecordDate());
 		VipListAdapter adapter = new VipListAdapter(inflater, model.getVipList());
 		vipListDate.setAdapter(adapter);
 		setListViewHeight(vipListDate);
+		
+		vipListDate.setOnItemClickListener(new OnItemClickListener() {
+			
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Intent i = new Intent(VipRecordActivity.this,UserInfoActivity.class);
+				i.putExtra("userFlag", "0");
+				startActivity(i);
+				
+			}
+		});
 		return view;
 	}
 	

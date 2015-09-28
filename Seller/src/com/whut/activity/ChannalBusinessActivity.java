@@ -35,6 +35,8 @@ public class ChannalBusinessActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_channel_business);
+		
+		((TextView)findViewById(R.id.activity_title_add)).setText("渠道业务管理");
 		initData();
 		initView();
 	}

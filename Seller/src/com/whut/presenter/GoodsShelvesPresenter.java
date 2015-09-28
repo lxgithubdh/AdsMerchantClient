@@ -9,6 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import android.graphics.Bitmap;
 
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.data.model.GoodsModel;
 import com.whut.interfaces.IBasePresenter;
 import com.whut.interfaces.IBaseView;
@@ -28,13 +29,13 @@ public class GoodsShelvesPresenter implements IBasePresenter {
 	@Override
 	public void request(int requestCode) {
 		switch(requestCode){
-		case Constants.REQUEST_UPLOAD_IMAGE:
-			Bitmap bitmap = (Bitmap)view.getInfo(Constants.REQUEST_UPLOAD_IMAGE);
-			AsyncUploadImage uploadImage= new AsyncUploadImage(this,bitmap,Constants.REQUEST_UPLOAD_IMAGE);
+		case RequestParam.REQUEST_UPLOAD_IMAGE:
+			Bitmap bitmap = (Bitmap)view.getInfo(RequestParam.REQUEST_UPLOAD_IMAGE);
+			AsyncUploadImage uploadImage= new AsyncUploadImage(this,bitmap,RequestParam.REQUEST_UPLOAD_IMAGE);
     		uploadImage.execute();
 			break;
-		case Constants.REQUEST_ADD:
-			GoodsModel model = (GoodsModel)view.getInfo(Constants.REQUEST_ADD);
+		case RequestParam.REQUEST_ADD:
+			GoodsModel model = (GoodsModel)view.getInfo(RequestParam.REQUEST_ADD);
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("sId", Constants.STORE_ID));
 			params.add(new BasicNameValuePair("title", model.getTitle()));
@@ -48,7 +49,7 @@ public class GoodsShelvesPresenter implements IBasePresenter {
 			params.add(new BasicNameValuePair("isReturnAnytime", String.valueOf(model.isReturnAnytime())));
 		    params.add(new BasicNameValuePair("imageUrl",model.getImageUrl()));
 			AsyncHttpPost asyncHttpPost = new AsyncHttpPost(this, 
-					Constants.ADD_GOODS_PATH, params, Constants.REQUEST_ADD);     //发起Post请求
+					RequestParam.ADD_GOODS_PATH, params, RequestParam.REQUEST_ADD);     //发起Post请求
 			asyncHttpPost.execute();
 			break;
 		default :
@@ -58,7 +59,7 @@ public class GoodsShelvesPresenter implements IBasePresenter {
 	}
 
 	@Override
-	public void response(Object data, int respondCode) {
+	public void response(String data, int respondCode) {
 		view.setInfo(data, respondCode);
 	}
 

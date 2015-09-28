@@ -4,8 +4,10 @@ import com.whut.seller.R;
 import com.whut.util.BackAction;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.View;
 
 /**
  * 设置界面
@@ -24,6 +26,12 @@ public class SettingActivity extends Activity {
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
+	}
+	
+	public void getUserInfo(View v){
+		Intent i = new Intent(this,UserInfoActivity.class);
+		i.putExtra("userFlag", "1");
+		startActivity(i);
 	}
 	
 }

@@ -5,8 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -14,18 +12,22 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.pgyersdk.update.PgyUpdateManager;
-import com.whut.business.LoginManage;
+import com.whut.component.service.VipNoticeService;
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
+import com.whut.data.model.UserModel;
+import com.whut.interfaces.IBaseView;
+import com.whut.presenter.LoginPresenter;
 import com.whut.seller.R;
 import com.whut.util.JsonUtils;
 import com.whut.util.BackAction;
 
 
 /**
- * 登录管理
+ * 登录界面
  * @author lx
  */
-public class LoginActivity extends Activity{
+public class LoginActivity extends Activity implements IBaseView{
 	
 	
 	private Context context;
@@ -35,8 +37,8 @@ public class LoginActivity extends Activity{
 	private EditText password;
 	//登录进度框
 	private ProgressDialog dialog;
-	//消息处理函数
-	private Handler handler;
+	//登录管理器
+	private LoginPresenter presenter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class LoginActivity extends Activity{
 		setContentView(R.layout.activity_login);
 		
 		PgyUpdateManager.register(this, Constants.APP_ID);
+		presenter = new LoginPresenter(this);
 		initData();
 	}
 
@@ -56,20 +59,6 @@ public class LoginActivity extends Activity{
 		userName = (EditText)findViewById(R.id.user_name);
 		password = (EditText)findViewById(R.id.password);
 		dialog = new ProgressDialog(context);
-		handler = new Handler(){
-
-			@Override
-			public void handleMessage(Message msg) {
-				String result = msg.getData().getString("res");
-				dialog.cancel();
-				if(parseResult(result)){
-					startActivity(new Intent(context,MainActivity.class));
-					LoginActivity.this.finish();
-				}
-				super.handleMessage(msg);
-			}
-			
-		};
 	}
 
 	
@@ -77,21 +66,7 @@ public class LoginActivity extends Activity{
 	 * 登录
 	 */
 	public void logIn(View v){
-		/*dialog.show();
-		dialog.setCancelable(false);
-		String userString = userName.getText().toString();
-		String psdString = password.getText().toString();
-		if(userString.trim().equals("")||psdString.trim().equals("")){
-			dialog.cancel();
-			Toast.makeText(context, "用户名或密码不能为空！", Toast.LENGTH_SHORT).show();
-			return;
-		}
-		String result = LoginManage.checkPassword(userString, psdString,handler);
-		dialog.cancel();
-		if(parseResult(result)){*/
-			startActivity(new Intent(context,MainActivity.class));
-			LoginActivity.this.finish();
-		//}
+		presenter.request(RequestParam.REQUEST_QUERY);
 	}
 	
 	/**
@@ -113,8 +88,7 @@ public class LoginActivity extends Activity{
 		if(obj!=null&&obj.getIntValue("code")==1){
 			flag = true;
 		}else{
-			String msg = obj.getString("msg");
-			Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, "登录失败!", Toast.LENGTH_SHORT).show();
 		}
 		return flag;
 	}
@@ -124,5 +98,35 @@ public class LoginActivity extends Activity{
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		BackAction.slipToExit(this, ev);
 		return super.dispatchTouchEvent(ev);
+	}
+
+
+	@Override
+	public Object getInfo(int code) {
+		dialog.show();
+		dialog.setCancelable(false);
+		String userString = userName.getText().toString();
+		String psdString = password.getText().toString();
+		if(userString.trim().equals("")||psdString.trim().equals("")){
+			dialog.cancel();
+			Toast.makeText(context, "用户名或密码不能为空！", Toast.LENGTH_SHORT).show();
+			return null;
+		}
+		UserModel user = new UserModel();
+		user.setUserName(userString);
+		user.setPassword(psdString);
+		return user;
+	}
+
+
+	@Override
+	public void setInfo(Object obj, int code) {
+		dialog.cancel();
+		if(parseResult((String)obj)){
+			startActivity(new Intent(context,MainActivity.class));
+			Intent intent = new Intent(context,VipNoticeService.class);
+			startService(intent);
+			LoginActivity.this.finish();
+		}
 	}
 }

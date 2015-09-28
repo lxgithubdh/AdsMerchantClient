@@ -1,4 +1,4 @@
-package com.whut.component;
+package com.whut.component.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.whut.seller"
     android:versionCode="1"
-    android:versionName="1.0.6" >
+    android:versionName="1.0.7" >
 
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="20"  />
+    
+    <!-- 应用权限 -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取网络状态 -->
@@ -27,11 +29,11 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/MyAppTheme" >
+        
+        <!-- 应用视图 -->
+        <activity android:name="com.whut.activity.UserInfoActivity"></activity>
         <activity  android:name="com.whut.activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            
         </activity>
         <activity  android:name="com.whut.activity.LoginActivity"></activity>
         <activity  android:name="com.whut.activity.ChannalBusinessActivity"></activity>
@@ -60,14 +62,31 @@
         <activity android:name="com.whut.activity.AdsManagerActivity"></activity>
         <activity android:name="com.whut.activity.VipRecordActivity"></activity>
         <activity android:name="com.whut.activity.WelcomActivity" 
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
         
-        <receiver android:name="com.whut.component.InstallReceiver">
+        <!-- 应用广播接收器 -->
+        <receiver android:name="com.whut.component.receiver.InstallReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED"/>
                 <data android:scheme="package"/>
             </intent-filter>
         </receiver>
+        
+        <receiver android:name="com.whut.component.receiver.VipNoticeReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.whut.broadcast.vip"/>
+            </intent-filter>
+        </receiver>
+        
+        <!-- 应用服务 -->
+        <service android:name="com.whut.component.service.VipNoticeService"></service>
+        
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import com.whut.util.JsonUtils;
 import com.whut.util.SelectImage;
 import com.whut.util.BackAction;
 import com.whut.config.Constants;
+import com.whut.config.RequestParam;
 import com.whut.data.model.GoodsModel;
 import com.whut.interfaces.IBaseView;
 
@@ -25,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -64,6 +66,7 @@ public class GoodsShelvesActivity extends Activity implements IBaseView{
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_goods_shelves);
 		
+		((TextView)findViewById(R.id.activity_title_complete)).setText("商品上架");
 		context = this;
 		Pgy.init(context, Constants.APP_ID);
 		presenter = new GoodsShelvesPresenter(this);
@@ -126,7 +129,7 @@ public class GoodsShelvesActivity extends Activity implements IBaseView{
         if(canSubmit){
         	dialog.show();
             dialog.setCancelable(false);
-            presenter.request(Constants.REQUEST_UPLOAD_IMAGE);
+            presenter.request(RequestParam.REQUEST_UPLOAD_IMAGE);
 		}else{
 			Toast.makeText(context, "请完善重要信息！", Toast.LENGTH_LONG).show();
 		}
@@ -198,7 +201,7 @@ public class GoodsShelvesActivity extends Activity implements IBaseView{
 	 */
 	private void submitGoods(){
 		model.setImageUrl(imageUrl);
-		presenter.request(Constants.REQUEST_ADD);
+		presenter.request(RequestParam.REQUEST_ADD);
 	}
 	
 	
@@ -220,7 +223,7 @@ public class GoodsShelvesActivity extends Activity implements IBaseView{
 
 	@Override
 	public Object getInfo(int code) {
-		if(code==Constants.REQUEST_UPLOAD_IMAGE){
+		if(code==RequestParam.REQUEST_UPLOAD_IMAGE){
 			return ImageUtil.getBitmap(image);
 		}else{
 			return model;
@@ -231,13 +234,13 @@ public class GoodsShelvesActivity extends Activity implements IBaseView{
 	@Override
 	public void setInfo(Object obj,int code) {
 		switch(code){
-		case  Constants.REQUEST_UPLOAD_IMAGE:
+		case  RequestParam.REQUEST_UPLOAD_IMAGE:
 			imageUrl = JsonUtils.parseUploadImage((String)obj, dialog, context);
 			if(imageUrl!=null){
 				submitGoods();
 			}
 			break;
-		case Constants.REQUEST_ADD:
+		case RequestParam.REQUEST_ADD:
 			onComplete((String)obj);
 			break;
 		default:
